@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 09:02 AM
+-- Generation Time: Feb 03, 2021 at 03:57 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cosmatic_system`
+-- Database: `cosmatic_ahmed_salah`
 --
 
 -- --------------------------------------------------------
@@ -38,18 +38,26 @@ CREATE TABLE `cash_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cash_payments`
+-- Table structure for table `categories`
 --
 
-INSERT INTO `cash_payments` (`id`, `procedure_payment_id`, `patient_id`, `procedure_id`, `hospital_id`, `paid`, `created_at`, `updated_at`) VALUES
-(3, 4, 7, 3, 1, 7000, '2021-01-20 09:08:50', '2021-01-20 10:30:25'),
-(5, 10, 6, 8, 1, 0, '2021-01-24 09:42:37', '2021-01-24 09:42:37'),
-(6, 11, 6, 8, 1, 3000, '2021-01-24 09:45:32', '2021-01-24 09:50:06'),
-(12, 19, 10, 13, 1, 4000, '2021-01-26 13:27:32', '2021-01-26 13:27:54'),
-(13, 20, 10, 13, 1, 3000, '2021-01-26 13:32:02', '2021-01-26 13:32:26'),
-(14, 21, 10, 13, 1, 0, '2021-01-26 13:33:27', '2021-01-26 13:33:27'),
-(15, 23, 11, 14, 2, 0, '2021-01-27 07:56:58', '2021-01-27 07:56:58');
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Category 1', '2021-02-03 07:41:45', '2021-02-03 07:41:45'),
+(2, 'Category 2', '2021-02-03 07:42:19', '2021-02-03 07:42:19');
 
 -- --------------------------------------------------------
 
@@ -70,7 +78,34 @@ CREATE TABLE `clinics` (
 
 INSERT INTO `clinics` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Clinic 1', '2021-01-06 08:07:07', '2021-01-06 08:07:07'),
-(2, 'Clinic 2', '2021-01-06 08:07:13', '2021-01-06 08:07:13');
+(2, 'Clinic 2', '2021-01-06 08:07:13', '2021-01-06 08:07:13'),
+(4, 'Clinic 3', '2021-02-03 11:58:58', '2021-02-03 11:58:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clinic_fees`
+--
+
+CREATE TABLE `clinic_fees` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `clinic_id` bigint(20) UNSIGNED NOT NULL,
+  `visit_cost` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `re_visit_cost` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `consultation_cost` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `free_consultation_cost` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clinic_fees`
+--
+
+INSERT INTO `clinic_fees` (`id`, `clinic_id`, `visit_cost`, `re_visit_cost`, `consultation_cost`, `free_consultation_cost`, `created_at`, `updated_at`) VALUES
+(1, 1, '500', '300', '300', '0', NULL, '2021-02-03 12:02:56'),
+(2, 2, '0', '0', '0', '0', NULL, NULL),
+(3, 4, '200', '150', '150', '0', '2021-02-03 11:58:58', '2021-02-03 11:58:58');
 
 -- --------------------------------------------------------
 
@@ -101,6 +136,31 @@ INSERT INTO `doctor_infos` (`id`, `patient_id`, `patient_photo_taken`, `consent_
 (8, 10, 1, 1, '90', '180', '20.9', '2021-01-25 11:20:12', '2021-01-25 12:16:57'),
 (9, 11, 1, 1, '79', '180', '29.5', '2021-01-26 07:29:26', '2021-01-26 07:29:26'),
 (10, 15, 0, 0, '79', '179', '29.5', '2021-02-01 10:29:32', '2021-02-01 11:45:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `drugs`
+--
+
+CREATE TABLE `drugs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cost` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `amount` int(11) NOT NULL DEFAULT 0,
+  `expiration_date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `drugs`
+--
+
+INSERT INTO `drugs` (`id`, `category_id`, `name`, `cost`, `amount`, `expiration_date`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Drug Test', '500', 3, '2021-02-27', '2021-02-03 07:42:40', '2021-02-03 07:52:57'),
+(2, 2, 'test', '400', 64, '2021-02-27', '2021-02-03 07:43:01', '2021-02-03 07:43:01');
 
 -- --------------------------------------------------------
 
@@ -157,17 +217,6 @@ CREATE TABLE `installment_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `installment_payments`
---
-
-INSERT INTO `installment_payments` (`id`, `procedure_payment_id`, `patient_id`, `procedure_id`, `hospital_id`, `month_count`, `start_month`, `month_fees`, `created_at`, `updated_at`) VALUES
-(2, 5, 7, 5, 1, 15, '2021-02-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(4, 8, 6, 8, 1, 5, '2021-02-24', 1800, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(5, 9, 6, 8, 2, 10, '2021-02-24', 3800, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(8, 22, 10, 13, 1, 5, '2021-02-26', 2000, '2021-01-26 13:35:17', '2021-01-26 13:35:17'),
-(9, 24, 11, 14, 2, 5, '2021-02-27', 3000, '2021-01-27 07:57:41', '2021-01-27 07:57:41');
-
 -- --------------------------------------------------------
 
 --
@@ -219,6 +268,30 @@ INSERT INTO `investigation_files` (`id`, `investigation_id`, `file`, `created_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `in_procedures`
+--
+
+CREATE TABLE `in_procedures` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `patient_id` bigint(20) UNSIGNED NOT NULL,
+  `visit_id` bigint(20) UNSIGNED NOT NULL,
+  `drug_id` bigint(20) UNSIGNED NOT NULL,
+  `amount` int(11) NOT NULL DEFAULT 1,
+  `comment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `in_procedures`
+--
+
+INSERT INTO `in_procedures` (`id`, `patient_id`, `visit_id`, `drug_id`, `amount`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 15, 35, 1, 3, 'Drug test taken', '2021-02-03 07:52:57', '2021-02-03 07:52:57');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -260,7 +333,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (65, '2021_01_27_140204_create_site_visits_table', 13),
 (66, '2021_01_30_081821_create_investigations_table', 14),
 (67, '2021_01_30_082425_create_investigation_files_table', 14),
-(68, '2021_02_02_090027_create_visit_files_table', 15);
+(68, '2021_02_02_090027_create_visit_files_table', 15),
+(69, '2021_02_03_091014_create_categories_table', 16),
+(70, '2021_02_03_091300_create_drugs_table', 16),
+(71, '2021_02_03_091335_create_in_procedures_table', 16),
+(72, '2021_02_03_134432_create_clinic_fees_table', 17);
 
 -- --------------------------------------------------------
 
@@ -278,52 +355,6 @@ CREATE TABLE `months` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `months`
---
-
-INSERT INTO `months` (`id`, `procedure_id`, `hospital_id`, `installment_payment_id`, `month`, `paid`, `created_at`, `updated_at`) VALUES
-(4, 5, 1, 2, '2021-02-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(5, 5, 1, 2, '2021-03-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:38:07'),
-(6, 5, 1, 2, '2021-04-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:38:33'),
-(7, 5, 1, 2, '2021-05-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:38:43'),
-(8, 5, 1, 2, '2021-06-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:38:54'),
-(9, 5, 1, 2, '2021-07-20', 3338, '2021-01-20 09:21:25', '2021-01-20 10:40:37'),
-(10, 5, 1, 2, '2021-08-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:40:21'),
-(11, 5, 1, 2, '2021-09-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:40:08'),
-(12, 5, 1, 2, '2021-10-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:39:58'),
-(13, 5, 1, 2, '2021-11-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(14, 5, 1, 2, '2021-12-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(15, 5, 1, 2, '2022-01-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(16, 5, 1, 2, '2022-02-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(17, 5, 1, 2, '2022-03-20', 3333, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(18, 5, 1, 2, '2022-04-20', 3333, '2021-01-20 09:21:25', '2021-01-20 10:39:44'),
-(34, 8, 1, 4, '2021-02-24', 1800, '2021-01-24 09:19:01', '2021-01-24 09:33:59'),
-(35, 8, 1, 4, '2021-03-24', 0, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(36, 8, 1, 4, '2021-04-24', 0, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(37, 8, 1, 4, '2021-05-24', 0, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(38, 8, 1, 4, '2021-06-24', 0, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(39, 8, 2, 5, '2021-02-24', 3800, '2021-01-24 09:35:20', '2021-01-24 09:41:19'),
-(40, 8, 2, 5, '2021-03-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(41, 8, 2, 5, '2021-04-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(42, 8, 2, 5, '2021-05-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(43, 8, 2, 5, '2021-06-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(44, 8, 2, 5, '2021-07-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(45, 8, 2, 5, '2021-08-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(46, 8, 2, 5, '2021-09-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(47, 8, 2, 5, '2021-10-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(48, 8, 2, 5, '2021-11-24', 0, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(59, 13, 1, 8, '2021-02-26', 2000, '2021-01-26 13:35:18', '2021-01-26 13:42:43'),
-(60, 13, 1, 8, '2021-03-26', 2000, '2021-01-26 13:35:18', '2021-01-26 13:42:58'),
-(61, 13, 1, 8, '2021-04-26', 2000, '2021-01-26 13:35:18', '2021-01-26 13:44:17'),
-(62, 13, 1, 8, '2021-05-26', 0, '2021-01-26 13:35:18', '2021-01-26 13:35:18'),
-(63, 13, 1, 8, '2021-06-26', 0, '2021-01-26 13:35:18', '2021-01-26 13:35:18'),
-(64, 14, 2, 9, '2021-02-27', 0, '2021-01-27 07:57:41', '2021-01-27 07:57:41'),
-(65, 14, 2, 9, '2021-03-27', 0, '2021-01-27 07:57:41', '2021-01-27 07:57:41'),
-(66, 14, 2, 9, '2021-04-27', 0, '2021-01-27 07:57:41', '2021-01-27 07:57:41'),
-(67, 14, 2, 9, '2021-05-27', 0, '2021-01-27 07:57:41', '2021-01-27 07:57:41'),
-(68, 14, 2, 9, '2021-06-27', 0, '2021-01-27 07:57:41', '2021-01-27 07:57:41');
 
 -- --------------------------------------------------------
 
@@ -561,18 +592,6 @@ CREATE TABLE `procedures` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `procedures`
---
-
-INSERT INTO `procedures` (`id`, `patient_id`, `visit_id`, `surgery_id`, `surgery_date`, `discharge_date`, `operative_time`, `operative_details`, `others`, `complications_status`, `complications_text`, `created_at`, `updated_at`) VALUES
-(3, 7, 1, 1, '2021-01-28', '2021-01-16', '16:20:00', 'awdasdsadasfsafsafawdqqdsadasdwadq', 'safsafsafas', 1, 'safsafsaf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(4, 7, 1, 1, '2021-01-28', '2021-01-16', '16:20:00', 'awdasdsadasfsafsafawdqqdsadasdwadq', 'safsafsafas', 1, 'safsafsaf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(5, 7, 1, 2, '2021-01-13', '2021-01-21', '19:22:00', 'asdfsad fasd fasd', 'asdgasdgsadg', 1, 'adsgdsag', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(8, 6, 10, 1, '2021-01-13', '2021-01-24', '14:25:00', '123321123231', '6844\r\n5\r\n566', 1, '54654', '2021-01-24 07:23:57', '2021-01-24 07:23:57'),
-(13, 10, 18, 1, '2021-01-26', '2021-01-26', '2 hours', 'qwfr', 'asfasf', 0, NULL, '2021-01-26 13:27:16', '2021-01-26 13:27:16'),
-(14, 11, 20, 3, '2021-01-27', '2021-01-31', '3', 'test test test', 'others others', 1, 'test tes test test', '2021-01-27 07:56:19', '2021-01-27 07:56:19');
-
 -- --------------------------------------------------------
 
 --
@@ -588,16 +607,6 @@ CREATE TABLE `procedure_anesthesias` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `procedure_anesthesias`
---
-
-INSERT INTO `procedure_anesthesias` (`id`, `procedure_id`, `key`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 5, 1, 'Socail Media afsddddddddddddddddddddd', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(4, 8, 1, 'Socail 4444444444444', '2021-01-24 07:23:57', '2021-01-24 07:23:57'),
-(8, 13, 1, 'Socail Media', '2021-01-26 13:27:16', '2021-01-26 13:27:16'),
-(9, 14, 1, 'Socail Media', '2021-01-27 07:56:19', '2021-01-27 07:56:19');
-
 -- --------------------------------------------------------
 
 --
@@ -612,18 +621,6 @@ CREATE TABLE `procedure_assistants` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `procedure_assistants`
---
-
-INSERT INTO `procedure_assistants` (`id`, `procedure_id`, `key`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 'Socail Mediaasfasfasf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(2, 4, 1, 'Socail Mediaasfasfasf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(3, 5, 1, 'Socail Media adsf                      fsaddddddddddddddddddddddddddd', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(6, 8, 1, 'Socail Media 456654', '2021-01-24 07:23:57', '2021-01-24 07:23:57'),
-(10, 13, 1, 'Socail Media', '2021-01-26 13:27:16', '2021-01-26 13:27:16'),
-(11, 14, 1, 'Socail Media', '2021-01-27 07:56:19', '2021-01-27 07:56:19');
 
 -- --------------------------------------------------------
 
@@ -648,24 +645,6 @@ CREATE TABLE `procedure_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `procedure_payments`
---
-
-INSERT INTO `procedure_payments` (`id`, `offer`, `patient_id`, `procedure_id`, `hospital_id`, `surgery_id`, `payment_method`, `procedure_fees`, `hospital_cost`, `hospital_other_fees`, `pre_paid_amount`, `doctor_fees`, `created_at`, `updated_at`) VALUES
-(4, 0, 7, 3, 1, 1, 'cash', 12000, 3000, 1500, 5000, 7500, '2021-01-20 09:08:50', '2021-01-20 09:08:50'),
-(5, 0, 7, 5, 1, 2, 'installments', 50000, 5000, 3000, 17500, 42000, '2021-01-20 09:21:25', '2021-01-20 09:21:25'),
-(8, 0, 6, 8, 1, 1, 'installments', 10000, 2000, 7000, 1000, 1000, '2021-01-24 09:19:01', '2021-01-24 09:19:01'),
-(9, 0, 6, 8, 2, 1, 'installments', 50000, 5000, 5000, 12000, 40000, '2021-01-24 09:35:20', '2021-01-24 09:35:20'),
-(10, 0, 6, 8, 1, 1, 'cash', 6000, 1000, 1000, 3000, 4000, '2021-01-24 09:42:37', '2021-01-24 09:42:37'),
-(11, 0, 6, 8, 1, 1, 'cash', 5000, 1000, 1000, 2000, 3000, '2021-01-24 09:45:32', '2021-01-24 09:45:32'),
-(19, 0, 10, 13, 1, 1, 'cash', 5000, 0, 0, 1000, 5000, '2021-01-26 13:27:32', '2021-01-26 13:27:32'),
-(20, 0, 10, 13, 1, 1, 'cash', 8000, 0, 0, 5000, 8000, '2021-01-26 13:32:02', '2021-01-26 13:32:02'),
-(21, 0, 10, 13, 1, 1, 'cash', 500, 0, 0, 0, 500, '2021-01-26 13:33:27', '2021-01-26 13:33:27'),
-(22, 0, 10, 13, 1, 1, 'installments', 10000, 0, 0, 0, 10000, '2021-01-26 13:35:16', '2021-01-26 13:35:16'),
-(23, 0, 11, 14, 2, 3, 'cash', 20000, 5000, 1000, 10000, 14000, '2021-01-27 07:56:58', '2021-01-27 07:56:58'),
-(24, 0, 11, 14, 2, 3, 'installments', 30000, 1000, 4000, 15000, 25000, '2021-01-27 07:57:41', '2021-01-27 07:57:41');
-
 -- --------------------------------------------------------
 
 --
@@ -680,23 +659,6 @@ CREATE TABLE `procedure_surgents` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `procedure_surgents`
---
-
-INSERT INTO `procedure_surgents` (`id`, `procedure_id`, `key`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 3, 3, 'Other adsadasda', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(2, 3, 1, 'Socail Media asfasfasfasf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(3, 4, 3, 'Other adsadasda', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(4, 4, 1, 'Socail Media asfasfasfasf', '2021-01-19 11:20:38', '2021-01-19 11:20:38'),
-(5, 5, 2, 'asfas saf sd fasasf', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(6, 5, 3, 'Socail Media3 asf as fasd', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(7, 5, 1, 'adsg setg aser ase', '2021-01-19 12:19:22', '2021-01-19 12:19:22'),
-(10, 8, 1, 'asfasd 1313', '2021-01-24 07:23:57', '2021-01-24 07:23:57'),
-(11, 8, 2, 'asfdasfasd 1111111111111111111111111111111', '2021-01-24 07:23:57', '2021-01-24 07:23:57'),
-(15, 13, 3, 'asfdasfasd', '2021-01-26 13:27:16', '2021-01-26 13:27:16'),
-(16, 14, 1, 'asfasd', '2021-01-27 07:56:19', '2021-01-27 07:56:19');
 
 -- --------------------------------------------------------
 
@@ -1451,6 +1413,8 @@ CREATE TABLE `visits` (
   `clinic_id` bigint(20) UNSIGNED NOT NULL,
   `visit_date` date NOT NULL,
   `visit_time` time NOT NULL,
+  `type` tinyint(1) DEFAULT 1,
+  `paid` int(10) DEFAULT 0,
   `patient_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
@@ -1462,25 +1426,9 @@ CREATE TABLE `visits` (
 -- Dumping data for table `visits`
 --
 
-INSERT INTO `visits` (`id`, `clinic_id`, `visit_date`, `visit_time`, `patient_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, '2021-01-22', '05:59:00', 7, 3, '0', '2021-01-16 20:54:34', '2021-01-17 05:23:33'),
-(7, 1, '2021-01-23', '19:49:00', 9, 3, '0', '2021-01-23 12:49:20', '2021-01-23 12:58:17'),
-(9, 2, '2021-01-23', '18:00:00', 7, 3, '0', '2021-01-23 14:00:18', '2021-01-23 14:00:18'),
-(10, 1, '2021-01-24', '12:33:00', 6, 3, '0', '2021-01-24 06:31:15', '2021-01-24 06:31:15'),
-(11, 1, '2021-01-24', '17:39:00', 7, 3, '0', '2021-01-24 11:37:26', '2021-01-24 11:37:26'),
-(12, 1, '2021-01-25', '17:57:00', 10, 3, '0', '2021-01-25 10:57:17', '2021-01-25 10:57:17'),
-(13, 1, '2021-01-25', '14:02:00', 7, 3, '0', '2021-01-25 10:59:58', '2021-01-25 10:59:58'),
-(14, 1, '2021-01-25', '17:40:00', 6, 3, '0', '2021-01-25 11:38:33', '2021-01-25 11:38:33'),
-(15, 1, '2021-01-26', '11:21:00', 7, 3, '1', '2021-01-26 07:18:25', '2021-01-26 12:00:03'),
-(16, 1, '2021-01-26', '23:19:00', 6, 3, '1', '2021-01-26 07:19:12', '2021-01-26 12:09:35'),
-(18, 1, '2021-01-26', '18:00:00', 10, 3, '0', '2021-01-26 12:02:10', '2021-01-26 12:08:58'),
-(20, 1, '2021-01-27', '09:55:00', 11, 3, '0', '2021-01-27 07:55:08', '2021-01-27 07:55:08'),
-(21, 2, '2021-01-27', '01:12:00', 11, 3, '0', '2021-01-27 08:09:06', '2021-01-27 08:09:06'),
-(22, 1, '2021-01-27', '20:32:00', 14, 3, '0', '2021-01-27 16:32:23', '2021-01-27 16:32:23'),
-(25, 2, '2021-01-31', '18:17:00', 15, 3, '3', '2021-01-31 10:13:12', '2021-02-01 10:11:19'),
-(28, 1, '2021-02-01', '13:52:39', 13, 3, '0', '2021-02-01 11:52:39', '2021-02-01 11:52:39'),
-(32, 1, '2021-02-27', '15:30:00', 15, 3, '1', '2021-02-02 11:30:07', '2021-02-02 11:30:52'),
-(33, 1, '2021-02-02', '16:41:00', 10, 3, '0', '2021-02-02 11:41:58', '2021-02-02 11:41:58');
+INSERT INTO `visits` (`id`, `clinic_id`, `visit_date`, `visit_time`, `type`, `paid`, `patient_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
+(35, 1, '2021-02-03', '03:27:00', 1, 200, 15, 3, '0', '2021-02-03 07:27:06', '2021-02-03 07:31:17'),
+(36, 1, '2021-02-03', '18:27:00', 2, 0, 13, 3, '0', '2021-02-03 12:26:03', '2021-02-03 12:26:03');
 
 -- --------------------------------------------------------
 
@@ -1495,15 +1443,6 @@ CREATE TABLE `visit_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `visit_details`
---
-
-INSERT INTO `visit_details` (`id`, `visit_id`, `details`, `created_at`, `updated_at`) VALUES
-(1, 1, '<p>Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;<mark class=\"pen-red\">Visite Details.&nbsp;</mark>Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;Visite Details.&nbsp;<mark class=\"marker-pink\"><strong>Visite Details.&nbsp;Visite Details.&nbsp;</strong></mark></p>', '2021-01-19 07:59:39', '2021-01-19 08:01:06'),
-(2, 21, '<p>Sara</p>', '2021-01-27 15:47:37', '2021-01-27 15:47:37'),
-(5, 25, '<p>bbba</p>', '2021-02-02 07:16:09', '2021-02-02 07:37:47');
 
 -- --------------------------------------------------------
 
@@ -1520,13 +1459,6 @@ CREATE TABLE `visit_files` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `visit_files`
---
-
-INSERT INTO `visit_files` (`id`, `visit_id`, `file`, `created_at`, `updated_at`) VALUES
-(11, 25, '12385698411612258667.png', '2021-02-02 07:37:47', '2021-02-02 07:37:47');
-
---
 -- Indexes for dumped tables
 --
 
@@ -1541,10 +1473,23 @@ ALTER TABLE `cash_payments`
   ADD KEY `cash_payments_hospital_id_foreign` (`hospital_id`);
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `clinics`
 --
 ALTER TABLE `clinics`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `clinic_fees`
+--
+ALTER TABLE `clinic_fees`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `clinic_fees_clinic_id_foreign` (`clinic_id`);
 
 --
 -- Indexes for table `doctor_infos`
@@ -1552,6 +1497,13 @@ ALTER TABLE `clinics`
 ALTER TABLE `doctor_infos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `doctor_infos_patient_id_foreign` (`patient_id`);
+
+--
+-- Indexes for table `drugs`
+--
+ALTER TABLE `drugs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `drugs_category_id_foreign` (`category_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -1588,6 +1540,15 @@ ALTER TABLE `investigations`
 ALTER TABLE `investigation_files`
   ADD PRIMARY KEY (`id`),
   ADD KEY `investigation_files_investigation_id_foreign` (`investigation_id`);
+
+--
+-- Indexes for table `in_procedures`
+--
+ALTER TABLE `in_procedures`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `in_procedures_patient_id_foreign` (`patient_id`),
+  ADD KEY `in_procedures_visit_id_foreign` (`visit_id`),
+  ADD KEY `in_procedures_drug_id_foreign` (`drug_id`);
 
 --
 -- Indexes for table `migrations`
@@ -1754,16 +1715,34 @@ ALTER TABLE `cash_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `clinics`
 --
 ALTER TABLE `clinics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `clinic_fees`
+--
+ALTER TABLE `clinic_fees`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `doctor_infos`
 --
 ALTER TABLE `doctor_infos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `drugs`
+--
+ALTER TABLE `drugs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1796,10 +1775,16 @@ ALTER TABLE `investigation_files`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `in_procedures`
+--
+ALTER TABLE `in_procedures`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `months`
@@ -1907,7 +1892,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `visit_details`
@@ -1935,10 +1920,22 @@ ALTER TABLE `cash_payments`
   ADD CONSTRAINT `cash_payments_procedure_payment_id_foreign` FOREIGN KEY (`procedure_payment_id`) REFERENCES `procedure_payments` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `clinic_fees`
+--
+ALTER TABLE `clinic_fees`
+  ADD CONSTRAINT `clinic_fees_clinic_id_foreign` FOREIGN KEY (`clinic_id`) REFERENCES `clinics` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `doctor_infos`
 --
 ALTER TABLE `doctor_infos`
   ADD CONSTRAINT `doctor_infos_patient_id_foreign` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `drugs`
+--
+ALTER TABLE `drugs`
+  ADD CONSTRAINT `drugs_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `installment_payments`
@@ -1960,6 +1957,14 @@ ALTER TABLE `investigations`
 --
 ALTER TABLE `investigation_files`
   ADD CONSTRAINT `investigation_files_investigation_id_foreign` FOREIGN KEY (`investigation_id`) REFERENCES `investigations` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `in_procedures`
+--
+ALTER TABLE `in_procedures`
+  ADD CONSTRAINT `in_procedures_drug_id_foreign` FOREIGN KEY (`drug_id`) REFERENCES `drugs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `in_procedures_patient_id_foreign` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `in_procedures_visit_id_foreign` FOREIGN KEY (`visit_id`) REFERENCES `visits` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `months`

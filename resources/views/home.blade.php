@@ -93,8 +93,9 @@
                                         <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
                                         <th class="border-b-2 whitespace-no-wrap"> Type </th>
                                         <th class="border-b-2 whitespace-no-wrap"> Cost </th>
+                                        <th class="border-b-2 whitespace-no-wrap"> Paid </th>
                                         <th class="border-b-2 whitespace-no-wrap"> Phone Number</th>
-                                        <th class="border-b-2 whitespace-no-wrap">Reservation Time</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> Reservation Time</th>
                                         <th class="print border-b-2 whitespace-no-wrap">Actions</th>
                                     </tr>
                                 </thead>
@@ -107,6 +108,7 @@
                                         <td class="border-b dark:border-dark-5">{{ $visit->patient->name }}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->type() }}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->type_cost() }}</td>
+                                        <td class="border-b dark:border-dark-5">{{ $visit->paid }}</td>
                                         <td class="border-b dark:border-dark-5">{!! $visit->patient->phone_1 .'</br>'.$visit->patient->phone_2 !!}</td>
                                         <td class="border-b dark:border-dark-5"> {{ $visit->visit_time }} </td>
                                         <td class="print border-b dark:border-dark-5 whitespace-no-wrap">

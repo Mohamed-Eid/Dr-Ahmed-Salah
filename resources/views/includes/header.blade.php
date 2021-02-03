@@ -309,7 +309,7 @@
                     <a href="#" class=""> @lang('site.home')</a>
                     @foreach(request()->segments() as $index => $segment)
                         @if($index < 1)
-                            <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+                            <i data-feather="{{ app()->getLocale() == 'en' ? 'chevron-right' : 'chevron-left' }}" class="breadcrumb__icon"></i>
                             <a href="" class="text-purple-700">{{ __('site.'.$segment) }}</a>
                         @endif
                     @endforeach
