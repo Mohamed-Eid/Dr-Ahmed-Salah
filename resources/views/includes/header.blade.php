@@ -155,6 +155,7 @@
                 </ul>
             </li>
             @endif
+
         </ul>
     </div>
     <!-- END: Mobile Menu -->
@@ -281,8 +282,14 @@
                                 <div class="side-menu__title"> Patients Reports </div>
                             </a>
                         </li>
-
                     </ul>
+                </li>
+
+                <li>
+                    <a href="{{ route('drug_store.index') }}" class="side-menu {{ is_active('drug_store.index')  }}">
+                        <div class="side-menu__icon"> <i class="ml-3" data-feather="shopping-cart"></i> </div>
+                        <div class="side-menu__title"> Drugs Store </div>
+                    </a>
                 </li>
 
                 <!-- <li>
@@ -300,13 +307,6 @@
         <div class="content">
             <!-- BEGIN: Top Bar -->
             <div class="top-bar">
-                {{-- @php $segments = ''; @endphp
-@foreach(Request::segments() as $segment)
-@php$segments .= '/'.$segment; @endphp
-                    <li>
-                        <a href="{{ $segments }}">{{ $segment }}</a>
-                </li>
-                @endforeach--}}
                 <!-- BEGIN: Breadcrumb -->
                 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
                     <i data-feather="home" class="breadcrumb__icon"></i>
