@@ -1,0 +1,15 @@
+@media print {
+	.mobile-menu,
+	.side-nav,
+	.breadcrumb,
+	.search,
+  .dropdown,
+  .print {
+    display: none;
+  }
+  .p-5,
+  .p-3 {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+};

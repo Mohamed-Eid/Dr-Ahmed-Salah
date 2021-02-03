@@ -1,0 +1,220 @@
+/* START:: GLOBAL STYLING */
+* {
+  font-family: 'Cairo', sans-serif;
+}
+
+html {
+  background: var(--mainBackGround);
+}
+
+.clearFix {
+  clear: both;
+  margin-top: 20px;
+}
+
+button.bg-theme-1, 
+a.bg-theme-1 {
+  background-color: #9571b8;
+} 
+
+.pagination__link--active {
+  background-color: #9571b8 !important;
+  color: #fff !important;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.tail-select .select-dropdown ul li.dropdown-option.selected {
+  background-color: #9571b8;
+}
+
+.select2.select2-container.select2-container--default {
+  width: 100% !important;
+
+}
+
+/* END:: GLOBAL STYLING */
+
+/* START:: CUSTOMIZE SCROLLBAR STYLE */
+body::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+} 
+
+body::-webkit-scrollbar-thumb {
+  background-color: #9571b8;
+}
+/* END:: CUSTOMIZE SCROLLBAR STYLE */
+
+/* START:: CUSTOMIZE MODAL SCROLLBAR STYLE */
+.modal.show::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.modal.show::-webkit-scrollbar-thumb {
+  background-color: #F1F1F1;
+}
+/* END CUSTOMIZE:: MODAL SCROLLBAR STYLE */
+
+/* START:: SYSTEM THEMES STYLE */
+.color-themes li{
+  text-align: center;
+  padding: 6px;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.color-themes li:first-child {
+  background: linear-gradient(to right, #0d697e, #a056c5, #961f60);
+}
+
+.color-themes li:nth-child(2) {
+  background: linear-gradient(to right, #e67a88,#ee9ca7, #ffdde1);
+}
+
+.color-themes li:nth-child(3) {
+  background: linear-gradient(to right, #2c3e50,#4b6075,#bdc3c7);
+}
+
+.color-themes li:nth-child(4) {
+  background: linear-gradient(to right, #5d26c1, #a17fe0, #59c173);
+}
+
+.color-themes li:nth-child(5) {
+  background: linear-gradient(to right, #f3904f, #6239af, #3b4371);
+}
+
+.color-themes li:last-child {
+  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);
+}
+/* END:: SYSTEM THEMES STYLE */
+
+/* START:: CUSTOMIZING CK EDITORS STYLE */
+#profile .ck.ck-editor {
+  width: 100% !important;
+}
+
+#add-clinic .ck.ck-editor {
+  width: 100% !important;
+}
+
+#reservation .ck.ck-editor {
+  width: 100% !important;
+}
+
+#add-patient .ck.ck-editor {
+  width: 100% !important;
+}
+
+#new-revealed .ck.ck-editor {
+  width: 100% !important;
+}
+
+#new-analyses .ck.ck-editor {
+  width: 100% !important;
+}
+
+#new-pregnancy-follow .ck.ck-editor {
+  width: 100% !important;
+}
+
+#new-ovulation-follow .ck.ck-editor {
+  width: 100% !important;
+}
+/* END:: CUSTOMIZING CK EDITORS STYLE */
+
+/* START:: CUSTOMIZING HEADER STYLE */
+.dropdown .dropdown-box .bg-theme-38 {
+  background-color: #71459b;
+}
+
+.dropdown .dropdown-box .bg-theme-38 .border-theme-40 {
+  border-color: #9571b8;
+}
+
+.hover\:bg-theme-1:hover  {
+  background-color: #9571b8;
+}
+/* END:: CUSTOMIZING HEADER STYLE */
+
+/* START:: CUSTOMIZING SIDE MENU STYLE */
+.side-nav .nav-brand {
+  margin-bottom: 15px;
+  margin-left: 24px;
+  padding: 20px 5px 30px;
+  border-radius: 10px;
+  background-color: rgba(225, 225, 225, 0.4);
+  box-shadow: 0 0 8px 2px #f1f5f8;
+}
+
+.mobile-menu {
+  border-color: transparent;
+}
+
+.mobile-menu img {
+  margin-left: 10px;
+}
+
+.mobile-menu ul li ul {
+  background-color: transparent;
+  padding-left: 10px;
+}
+
+.side-nav .side-menu.side-menu--active .side-menu__icon svg {
+  color: #645ea8;
+}
+
+.side-nav>ul ul {
+  background-color: transparent;
+  padding-left: 15px;
+}
+
+.side-nav>ul ul li:hover {
+  background-color: #583d72;
+  border-radius: 40px;
+}
+
+.side-nav>ul>li>.side-menu:hover:not(.side-menu--active):not(.side-menu--open) .side-menu__icon:before {
+  background-color: #583d72;
+}
+/* END:: CUSTOMIZING SIDE MENU STYLE */
+
+/* START:: ADD NEW VISIT PAGE STYLE */
+.examination-img-container {
+  position: relative;
+}
+
+.examination-img-container .overlay {
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.examination-img-container .overlay svg {
+  cursor: pointer;
+  font-size: 20px;
+}
+/* END:: ADD NEW VISIT PAGE STYLE */
+
+/* START:: FLOATING BUTTON STYLE */
+.floating_btn {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  color: #fff;
+  z-index: 999;
+}
+
+.floating_btn svg {
+  font-size: 22px;
+}
+/* END:: FLOATING BUTTON STYLE */
