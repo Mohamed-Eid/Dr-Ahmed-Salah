@@ -16,6 +16,9 @@
     @endif
 </div>
 
+@include('visits.includes.non_surgery')
+
+
 @include('visits.includes.doctor_info',['patient'=>$visit->patient])
 
 <!-- START:: INVESTIGATION -->

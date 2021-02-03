@@ -329,72 +329,35 @@ $('.anesthesia-selector').on('select2:unselecting', function (e) {
   });
   // END:: PROCEDURES PAGE
 
+  $('#non-surg-proc').css('display', 'none');
+$('.add-non-surg-proc').on('click', () => {
+  $('#non-surg-proc').css('display', 'block');
+});
+$('.non-serg-procedure-selector').on('select2:select', function (e) {
+  let amount = e.params.data.element.attributes[1]['value'];
+  let nonSergProcedureMarkUp = `
+  <div class="target grid grid-cols-12 gap-6 col-span-12 lg:flex-row pr-3 pl-3 -mx-5" id="nonsurgery-${e.params.data.id}">
 
+    <div class="col-span-12 md:col-span-4">
+      <label class="text-gray-600 mb-3 text-lg">Selected Procedure Amount </label>
+      <input type="number" name="nonsurgery[${e.params.data.id}][amount]"  class="the-num input w-full border mt-2" placeholder="Amount" value="1" min="1" max="${amount}"> 
+    </div>
 
-  // START:: PROCEDURED FINANCIALS PAGE
-  // $('#total-fees').css('visibility' , 'hidden');
-  // $('#number-of-monthes').css('display', 'none');
-  // $('#monthly-fees').css('display', 'none');
+    <div class="col-span-12 md:col-span-4">
+      <label class="text-gray-600 mb-3 text-lg">Comments</label>
+      <input type="text" name="nonsurgery[${e.params.data.id}][comment]" class="input w-full border mt-2" placeholder="Price">
+    </div>
 
+    <span class="delete-non-serg-procedure col-span-12 md:col-span-4 button translate-y-3 mb-3 mr-2 flex items-center justify-center bg-theme-6 text-white" style="margin-top: 35px; margin-bottom: 25px;"> Remove </span>
 
-  // $('#payment-status').on('change', () => {
-  //   let statusOptionValue = $('#payment-status').children('option:checked').val();
-  //   if ( statusOptionValue == 0 ) {
-  //     // $('#installments-fees').css('visibility' , 'hidden');
-  //     $('#number-of-monthes').css('display' , 'none');
-  //     $('#monthly-fees').css('display' , 'none');
-  //   } else if ( statusOptionValue == 1 ) {
-  //     // $('#installments-fees').css('visibility' , 'visible');
-  //     $('#number-of-monthes').css('display' , 'block');
-  //     $('#monthly-fees').css('display' , 'block');
-  //   }
-  // })
+  </div>
+  `;
+  $('.non-serg-procedure-comments-container').append(nonSergProcedureMarkUp);
 
-
-
-  // let calculateProfit = () => {
-  //   console.log($('.procedure-fees-input'));
-  //   let procedresFees = parseInt( $('.procedure-fees-input').val() ) ;
-    
-  //   let hospitalFees = parseInt( $('.hospital-fees-input').val() );
-  //   let hospitalOthers = parseInt( $('.hospital-other-input').val() );
-    
-  //   // console.log('procedresFees  : '+procedresFees);
-  //   // console.log('hospitalFees   : '+hospitalFees);
-  //   // console.log('hospitalOthers : '+hospitalOthers);
-
-  //   $('.total-profets').val(procedresFees - (hospitalFees + hospitalOthers));
-  // };
-  
-  // $('.procedure-fees-input').on( 'input', calculateProfit );
-  // $('.hospital-fees-input').on( 'input', calculateProfit );
-  // $('.hospital-other-input').on( 'input', calculateProfit ); 
-
-  // let calcRemainingFees = () => {
-  //   let procedresFees = parseInt( $('.procedure-fees-input').val() ) ;
-  //   let paidAmmount = parseInt( $('.paid-amount').val() ) ;
-
-  //   $('.remaining-fees').val( procedresFees - paidAmmount );
-  //   let theRemainingFees = $('.remaining-fees').val();
-  //   return parseInt(theRemainingFees);
-  // };
-
-  // $('.procedure-fees-input').on('input', calcRemainingFees);
-  // $('.paid-amount').on('input', calcRemainingFees);
-
-  // // START:: CALCULATING INSTALLMENT MONTHLY FEES
-  // let calcMonthlyFees = () => {
-  //   let remainingFees = calcRemainingFees() ;
-  //   let numberOfMonthes = parseInt( $('.number-of-monthes').val() ) ;
-
-  //   $('.monthly-fees').val(remainingFees / numberOfMonthes);
-  // };
-
-  // $('.procedure-fees-input').on("input", calcMonthlyFees);
-  // $('.number-of-monthes').on("input", calcMonthlyFees);
-  // // END:: CALCULATING INSTALLMENT MONTHLY FEES
-
-  // END:: PROCEDURED FINANCIALS PAGE
+  $('.delete-non-serg-procedure').on('click' , function() {
+    $(this).parent().remove();
+  });
+});
 
   // START:: PRINT BUTTON
   $('.print-tables').on('click', function () {

@@ -42,6 +42,10 @@ class Patient extends Model
         return $this->hasMany(Procedure::class);
     }
 
+    public function in_procedures(){
+        return $this->hasMany(InProcedure::class);
+    }
+
     public function patient_examinations()
     {
         return $this->hasMany(PatientExamination::class);

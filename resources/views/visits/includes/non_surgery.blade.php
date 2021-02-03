@@ -14,9 +14,10 @@
             @csrf
             <div class="col-span-12">
                 <label class="text-gray-600 mb-3 text-lg">Procedure</label>
+
                 <select data-placeholder="Select Procedure" data-search="true"
                     class="non-serg-procedure-selector w-full" multiple>
-                    @foreach (\App\Drug::where('amount','>',0) as $drug)
+                    @foreach (\App\Drug::where('amount','>',0)->get() as $drug)
                     <option value="{{ $drug->id }}" data-amount="{{ $drug->amount }}">{{ $drug->name . ' - '. $drug->category->name . ' - ('.$drug->amount.')' }} </option>
                     @endforeach
                 </select>
