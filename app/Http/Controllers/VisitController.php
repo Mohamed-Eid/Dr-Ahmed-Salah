@@ -88,6 +88,15 @@ class VisitController extends Controller
         return view('visits.show', compact('visit','patient_complaints','examinations','diagnosis','plan_items','investigations'));
     }
 
+    public function pay_visit(Request $request, Visit $visit){
+        $visit->update([
+            'paid' => $request->paid
+        ]);
+
+        Alert::success('Resevation Paided Succesfully', '');
+        return redirect()->back();
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *

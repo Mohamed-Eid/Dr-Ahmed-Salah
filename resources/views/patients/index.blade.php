@@ -102,7 +102,7 @@
                 <form class="flex flex-col md:grid grid-cols-12 gap-12" method="POST" action="{{ route('visits.store') }}">
                     @csrf
 
-                    <div class="col-span-12 md:col-span-4 lg:flex-row pr-3 pl-3 -mx-5">
+                    <div class="col-span-12 md:col-span-6 lg:flex-row pr-3 pl-3 -mx-5">
                         <label class="text-gray-600 mb-3 text-lg block">Clinic</label>
                         <select data-search="true" name="clinic_id" class="tail-select w-full">
                             @foreach ($clinics as $clinic)
@@ -110,15 +110,25 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="col-span-12 md:col-span-6 lg:flex-row pr-3 pl-3 -mx-5">
+                        <label class="text-gray-600 mb-3 text-lg block">Type</label>
+                        <select data-search="true" name="type" class="tail-select w-full">
+                            <option value="1">New Visit</option>
+                            <option value="2">Re Visit</option>
+                            <option value="3">Consultation</option>
+                            <option value="4">Free Consultation</option>
+                        </select>
+                    </div>
                     
                     <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                     
-                    <div class="col-span-12 md:col-span-4 lg:flex-row pr-3 pl-3 -mx-5">
+                    <div class="col-span-12 md:col-span-6 lg:flex-row pr-3 pl-3 -mx-5">
                         <label class="text-gray-600 mb-3 text-lg block">Date</label>
                         <input type="date" name="visit_date" class="input border mt-2 w-full" placeholder="Patient Name">
                     </div>
 
-                    <div class="col-span-12 md:col-span-4 lg:flex-row pr-3 pl-3 -mx-5">
+                    <div class="col-span-12 md:col-span-6 lg:flex-row pr-3 pl-3 -mx-5">
                         <label class="text-gray-600 mb-3 text-lg block">Time</label>
                         <input type="time" name="visit_time" class="input border mt-2 w-full">
                     </div>

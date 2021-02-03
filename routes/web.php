@@ -71,7 +71,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('check_in/{visit}', 'HomeController@check_in')->name('check_in');
     Route::put('delay/{visit}', 'VisitController@delay')->name('visits.delay');
     Route::get('finish_visit/{visit}', 'HomeController@finish_visit')->name('finish_visit');
-    
+    Route::post('{visit}/pay','VisitController@pay_visit')->name('pay_visit');
+
+
     Route::post('doctor_info/{patient}', 'DoctorInfoController@store')->name('doctor_info.store')->middleware('is_doctor');;
     Route::put('doctor_info/{patient}/edit', 'DoctorInfoController@update')->name('doctor_info.update');
 

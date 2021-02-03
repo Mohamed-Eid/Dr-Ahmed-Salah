@@ -131,10 +131,48 @@
                                             </button>
 
                                             @include('includes.delete_button',['route' => route('visits.destroy',['visit'=>$visit])])
+                                            
+                                            @if ($visit->type != 4)
+                                            <button class="button px-2 mr-1 mb-2 bg-theme-1 text-white tooltip"
+                                                title="Collect Fees">
+                                                <a href="javascript:;" data-toggle="modal" data-target="#collect-fees-{{ $visit->id }}"
+                                                    class="w-5 h-5 flex items-center justify-center">
+                                                    <i data-feather="dollar-sign" class="w-4 h-4"></i>
+                                                </a>
+                                            </button>                                                
+                                            @endif
 
 
                                         </td>
                                     </tr>   
+                                    <!-- START:: ADD RESERVATION MODAL -->
+                                    <div class="modal" id="collect-fees-{{ $visit->id }}">
+                                        <div class="modal__content px-5 py-5" style="width: 50%">
+                                            <div class="intro-y flex items-center pt-2 mb-5 h-10">
+                                                <h2 class="text-lg font-medium text-gray-600 truncate mr-5">Collect Fees</h2>
+                                            </div>
+
+                                            <form class="flex flex-col md:grid grid-cols-12 gap-12" method="POST" action="{{ route('pay_visit',$visit) }}">
+                                                @csrf
+                                                
+
+                                                <div class="col-span-12 lg:flex-row pr-3 pl-3 -mx-5">
+                                                    <label class="text-gray-600 mb-3 text-lg block">The Fees</label>
+                                                    <input type="text" name="paid" class="input border mt-2 w-full" placeholder="The Fees">
+                                                </div>
+
+                                                <div
+                                                    class="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-4 lg:col-span-4 lg:flex-row pr-3 pl-3 -mx-5">
+                                                    <button type="submit"
+                                                        class="button w-40 mr-5 ml-5 flex items-center justify-center bg-theme-1 text-white">
+                                                        <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i>
+                                                        Save
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- END:: ADD RESERVATION MODAL -->
                                     @endforeach
 
 

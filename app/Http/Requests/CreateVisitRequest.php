@@ -26,8 +26,9 @@ class CreateVisitRequest extends FormRequest
         return [
             'patient_id'     => 'required',
             'clinic_id'      => 'required',
-            'visit_date'           => 'required',
-            'visit_time'           => 'required',
+            'type'           => 'required',
+            'visit_date'     => 'required',
+            'visit_time'     => 'required',
         ];
     }
 }
