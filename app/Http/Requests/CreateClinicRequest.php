@@ -24,7 +24,11 @@ class CreateClinicRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'visit_cost' => 'required',
+            're_visit_cost' => 'required',
+            'consultation_cost' => 'required',
+            // 'free_consultation_cost' => 'required',
         ];
     }
 }

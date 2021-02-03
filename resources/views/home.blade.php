@@ -8,7 +8,7 @@
         <div class="col-span-12 mt-8">
 
             <div class="intro-y flex items-center flex-wrap justify-between">
-                <h2 class="text-lg font-medium text-gray-600 truncate mr-5">General Monthly Report</h2>
+                <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.general_day_report')</h2>
 
             </div>
 
@@ -21,7 +21,7 @@
                                 <i data-feather="users" class="report-box__icon text-purple-700"></i>
                             </div>
                             <div class="text-3xl font-bold leading-8 mt-6">{{ $today_visits }}</div>
-                            <div class="text-base text-gray-600 mt-1"> Today Reservations </div>
+                            <div class="text-base text-gray-600 mt-1"> @lang('site.Today Reservations') </div>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                                 <i data-feather="log-in" class="report-box__icon text-purple-700"></i>
                             </div>
                             <div class="text-3xl font-bold leading-8 mt-6">{{ $checked_in_visits }}</div>
-                            <div class="text-base text-gray-600 mt-1"> Checked In Patients </div>
+                            <div class="text-base text-gray-600 mt-1"> @lang('site.Checked In Patients') </div>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                                 <i data-feather="activity" class="report-box__icon text-purple-700"></i>
                             </div>
                             <div class="text-3xl font-bold leading-8 mt-6">{{ $procedures_today }}</div>
-                            <div class="text-base text-gray-600 mt-1"> Surgeries </div>
+                            <div class="text-base text-gray-600 mt-1"> @lang('site.Surgeries') </div>
                         </div>
                     </div>
                 </div>
@@ -68,17 +68,17 @@
                     <div class="intro-y box px-5 pt-5 pb-5 mt-5">
 
                         <div class="grid grid-cols-12 gap-6">
-                            <h2 class="text-gray-600 mb-4 text-lg col-span-12 md:col-span-6"> Today Reservations </h2>
+                            <h2 class="text-gray-600 mb-4 text-lg col-span-12 md:col-span-6"> @lang('site.Today Reservations') </h2>
 
                             <div class="col-span-12 md:col-span-6 flex justify-end">
                                 <a href="{{ route('patients.index') }}"
                                     class="button translate-y-3 mt-2 ml-2 flex items-center justify-center bg-theme-1 text-white">
-                                    <i data-feather="plus" class="w-4 h-4 mr-1"></i> Add New Reservation
+                                    <i data-feather="plus" class="w-4 h-4 mr-1"></i> @lang('site.Add New Reservation')
                                 </a>
 
                                 <button type="submit" onclick="printBy('.lg-table')"
                                     class="print button translate-y-3 mt-2 ml-2 flex items-center justify-center bg-theme-1 text-white">
-                                    <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> Print
+                                    <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.print')
                                 </button>
                             </div>
 
@@ -91,6 +91,8 @@
                                     <tr class="bg-gray-200 dark:bg-dark-1">
                                         <th class="border-b-2 whitespace-no-wrap">#</th>
                                         <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> Type </th>
+                                        <th class="border-b-2 whitespace-no-wrap"> Cost </th>
                                         <th class="border-b-2 whitespace-no-wrap"> Phone Number</th>
                                         <th class="border-b-2 whitespace-no-wrap">Reservation Time</th>
                                         <th class="print border-b-2 whitespace-no-wrap">Actions</th>
@@ -103,6 +105,8 @@
                                     <tr>
                                         <td class="border-b dark:border-dark-5">{{$index+1}}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->patient->name }}</td>
+                                        <td class="border-b dark:border-dark-5">{{ $visit->type() }}</td>
+                                        <td class="border-b dark:border-dark-5">{{ $visit->type_cost() }}</td>
                                         <td class="border-b dark:border-dark-5">{!! $visit->patient->phone_1 .'</br>'.$visit->patient->phone_2 !!}</td>
                                         <td class="border-b dark:border-dark-5"> {{ $visit->visit_time }} </td>
                                         <td class="print border-b dark:border-dark-5 whitespace-no-wrap">

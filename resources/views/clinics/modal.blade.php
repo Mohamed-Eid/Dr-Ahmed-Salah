@@ -1,11 +1,27 @@
 <div class="modal" id="clinics-modal-{{ $clinic->id }}">
-    <div class="modal__content p-10 text-center w-3/4"> 
-        <form class="print p-5 grid grid-cols-12 gap-6" method="POST" action="{{ route('clinics.update',$clinic) }}">
+    <div class="modal__content p-10 w-3/4"> 
+        <form class="p-5 grid grid-cols-12 gap-6" method="POST" action="{{ route('clinics.update',$clinic) }}">
             @csrf
             @method('PUT')
+            
             <div class="sm:flex-row items-center col-span-12 sm:col-span-12 md:col-span-6 mt-2">
                 <label class="text-gray-600 mb-3 text-lg">Clinic Name</label>
                 <input type="text" name="name" value="{{ $clinic->name }}" class="input w-full border" placeholder="Clinic Name">
+            </div>
+            
+            <div class="sm:flex-row items-center col-span-12 sm:col-span-12 md:col-span-6 mt-2">
+                <label class="text-gray-600 mb-3 text-lg">Visit Cost</label>
+                <input type="text" name="visit_cost" value="{{ $clinic->clinic_fees->visit_cost }}" class="input w-full border" placeholder="Visit Cost">
+            </div>
+            
+            <div class="sm:flex-row items-center col-span-12 sm:col-span-12 md:col-span-6 mt-2">
+                <label class="text-gray-600 mb-3 text-lg">Re Visit Cost</label>
+                <input type="text" name="re_visit_cost" value="{{ $clinic->clinic_fees->re_visit_cost }}" class="input w-full border" placeholder="Re Visit Cost">
+            </div>
+
+            <div class="sm:flex-row items-center col-span-12 sm:col-span-12 md:col-span-6 mt-2">
+                <label class="text-gray-600 mb-3 text-lg">Consultation Cost</label>
+                <input type="text" name="consultation_cost" value="{{ $clinic->clinic_fees->consultation_cost }}" class="input w-full border" placeholder="Consultation Cost">
             </div>
         
             <div class="sm:flex-row items-center col-span-12 sm:col-span-12 md:col-span-2 mt-1">

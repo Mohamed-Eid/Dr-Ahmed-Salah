@@ -176,7 +176,7 @@
                     <a href="{{ route('home') }}"
                         class="side-menu {{ is_active('home') }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="home"></i> </div>
-                        <div class="side-menu__title"> Home </div>
+                        <div class="side-menu__title"> @lang('site.home') </div>
                     </a>
                 </li>
 
@@ -185,7 +185,7 @@
                         <a href="{{ route('settings.system') }}"
                             class="side-menu {{ is_active('settings.system') }}">
                             <div class="side-menu__icon"> <i class="ml-3" data-feather="settings"></i> </div>
-                            <div class="side-menu__title"> System Settings </div>
+                            <div class="side-menu__title"> @lang('site.system_settings') </div>
                         </a>
                     </li>
                 @endif
@@ -194,7 +194,7 @@
                     <a href="{{ route('edit_profile') }}"
                         class="side-menu {{ is_active('edit_profile') }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="settings"></i> </div>
-                        <div class="side-menu__title"> Edit Profile </div>
+                        <div class="side-menu__title"> @lang('site.edit_profile') </div>
                     </a>
                 </li>
 
@@ -203,7 +203,7 @@
                         <a href="{{ route('users.index') }}"
                             class="side-menu {{ is_active('users.index') }}">
                             <div class="side-menu__icon"> <i class="ml-3" data-feather="users"></i> </div>
-                            <div class="side-menu__title"> All Users </div>
+                            <div class="side-menu__title"> @lang('site.all_users') </div>
                         </a>
                     </li>
                 @endif
@@ -213,7 +213,7 @@
                     <a href="{{ route('patients.index') }}"
                         class="side-menu {{ is_active('patients.index') }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="users"></i> </div>
-                        <div class="side-menu__title"> All Patients </div>
+                        <div class="side-menu__title"> @lang('site.all_patients') </div>
                     </a>
                 </li>
 
@@ -222,7 +222,7 @@
                     <a href="{{ route('online_visits') }}"
                         class="side-menu {{ is_active('online_visits') }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="users"></i> </div>
-                        <div class="side-menu__title"> Requests </div>
+                        <div class="side-menu__title"> @lang('site.requests') </div>
                     </a>
                 </li>
 
@@ -230,7 +230,7 @@
                     <a href="{{ route('visits.index') }}"
                         class="side-menu {{ is_active('visits.index') }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="inbox"></i> </div>
-                        <div class="side-menu__title"> All Reservation </div>
+                        <div class="side-menu__title"> @lang('site.all_reservation') </div>
                     </a>
                 </li>
 
@@ -239,7 +239,7 @@
                         <a href="{{ route('clinics.index') }}"
                             class="side-menu {{ is_active('clinics.index') }}">
                             <div class="side-menu__icon"> <i class="ml-3" data-feather="hash"></i> </div>
-                            <div class="side-menu__title"> Clinics </div>
+                            <div class="side-menu__title"> @lang('site.clinics') </div>
                         </a>
                     </li>
                 @endif
@@ -248,7 +248,7 @@
                     <a href="javascript:;"
                         class="side-menu {{ drop_active() ? 'side-menu--open' : '' }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="pie-chart"></i> </div>
-                        <div class="side-menu__title"> Reports <i data-feather="chevron-down"
+                        <div class="side-menu__title"> @lang('site.reports') <i data-feather="chevron-down"
                                 class="side-menu__sub-icon"></i> </div>
                     </a>
                     <ul
@@ -258,7 +258,7 @@
                                 <a href="{{ route('reports.surgeries') }}"
                                     class="side-menu {{ is_active('reports.surgeries') }}">
                                     <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                    <div class="side-menu__title"> Surgeries Report </div>
+                                    <div class="side-menu__title"> @lang('site.surgeries_report') </div>
                                 </a>
                             </li>
 
@@ -266,7 +266,7 @@
                                 <a href="{{ route('reports.surgeries_payment') }}"
                                     class="side-menu {{ is_active('reports.surgeries_payment') }}">
                                     <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                    <div class="side-menu__title"> Surgeries Financial Report </div>
+                                    <div class="side-menu__title"> @lang('site.surgeries_financial_report ')</div>
                                 </a>
                             </li>
 
@@ -274,7 +274,7 @@
                                 <a href="{{ route('reports.hospitals') }}"
                                     class="side-menu {{ is_active('reports.hospitals') }}">
                                     <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                    <div class="side-menu__title"> Hospitals Financial Report </div>
+                                    <div class="side-menu__title"> @lang('site.hospitals_financial_report') </div>
                                 </a>
                             </li>
                         @endif
@@ -282,7 +282,7 @@
                             <a href="{{ route('reports.patients') }}"
                                 class="side-menu {{ is_active('reports.patients') }}">
                                 <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                <div class="side-menu__title"> Patients Reports </div>
+                                <div class="side-menu__title"> @lang('site.patients_reports') </div>
                             </a>
                         </li>
                     </ul>
@@ -291,16 +291,9 @@
                 <li>
                     <a href="{{ route('drug_store.index') }}" class="side-menu {{ is_active('drug_store.index')  }}">
                         <div class="side-menu__icon"> <i class="ml-3" data-feather="shopping-cart"></i> </div>
-                        <div class="side-menu__title"> Drugs Store </div>
+                        <div class="side-menu__title"> @lang('site.drug_store') </div>
                     </a>
                 </li>
-
-                <!-- <li>
-				<a href="financial.php" class="side-menu">
-					<div class="side-menu__icon"> <i class="ml-3" data-feather="dollar-sign"></i> </div>
-					<div class="side-menu__title"> Financilas </div>
-				</a>
-			</li> -->
 
             </ul>
         </nav>
@@ -313,7 +306,7 @@
                 <!-- BEGIN: Breadcrumb -->
                 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
                     <i data-feather="home" class="breadcrumb__icon"></i>
-                    <a href="#" class=""> Home</a>
+                    <a href="#" class=""> @lang('site.home')</a>
                     @foreach(request()->segments() as $index => $segment)
                         @if($index < 1)
                             <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -392,21 +385,16 @@
                                 <div class="p-2">
                                     <a href="{{ route('edit_password') }}"
                                         class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
-                                        <i data-feather="key" class="w-4 h-4 mr-2 ml-2"></i> Reset Password
+                                        <i data-feather="key" class="w-4 h-4 mr-2 ml-2"></i> @lang('site.reset_password')
                                     </a>
                                 </div>
-
-                                <a href=""
-                                    class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
-                                    <i data-feather="help-circle" class="w-4 h-4 mr-2 ml-2"></i> Help
-                                </a>
                             </div>
 
                             <div class="p-2 border-t border-theme-40 dark:border-dark-3">
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                     class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md">
-                                    <i data-feather="power" class="w-4 h-4 mr-2 ml-2"></i> Logout
+                                    <i data-feather="power" class="w-4 h-4 mr-2 ml-2"></i> @lang('site.log_out')
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">

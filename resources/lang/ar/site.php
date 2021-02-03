@@ -176,5 +176,36 @@ return [
     'deleted_successfully' => 'تم الحذف بنجاح',
     'no_patient'            => 'لا يوجد حالة الان',
     'password_changed_successfuly' => 'تم تغير كلمة المرور بنجاح',
+    'reset_password' => 'إعادة تعيين كلمة المرور',
+    'log_out' => 'تسجيل خروج',
+
+
+    'system_settings' => 'إعدادات النظام',
+    'all_users' => 'كل المستخدمين',
+    'requests' => 'طلبات الحجوزات',
+    'all_reservation' => 'كل الحجوزات',
+    'drug_store' => 'مخزن الادوية',
+    'surgeries_report' => 'تقارير العمليات',
+    'surgeries_financial_report' => 'التقارير المالية للعمليات',
+    'hospitals_financial_report' => 'التقارير المالية للمستشفيات',
+    'patients_report' => 'تقارير المرضي',
+
+
+    //home
+    'general_day_report' => 'التقرير اليومي',
+
+    'Surgeries' => 'العمليات',
+
+    'Checked In Patients' => 'المتواجودون حاليا',
+    'Today Reservations' => 'حجوزات اليوم',
+
+    'print' => 'طباعة',
+
+    'Add New Reservation' => 'إضافة حجز جديد',
+
+    'visit'        => 'كشف',
+    're_visit'     => 'إعادة',
+    'consultation' => 'إستشارة',
+    'free_consultation' => ' إستشارة مجانية',
 
 ];

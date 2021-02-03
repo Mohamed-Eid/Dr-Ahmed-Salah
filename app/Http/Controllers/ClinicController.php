@@ -29,8 +29,15 @@ class ClinicController extends Controller
      */
     public function store(CreateClinicRequest $request)
     {
-        Clinic::create(['name' =>$request->name]);
+        $clinic = Clinic::create(['name' =>$request->name]);
 
+        $clinic->clinic_fees()->create([
+            'visit_cost' => $request->visit_cost,
+            're_visit_cost' => $request->re_visit_cost,
+            'consultation_cost' => $request->consultation_cost,
+        ]);
+
+        Alert::success('Clinic Saved Succesfully', '');
         return redirect()->back();
     }
 
@@ -46,6 +53,11 @@ class ClinicController extends Controller
     {
         $clinic->update(['name' =>$request->name]);
 
+        $clinic->clinic_fees()->update([
+            'visit_cost' => $request->visit_cost,
+            're_visit_cost' => $request->re_visit_cost,
+            'consultation_cost' => $request->consultation_cost,
+        ]);
 
         Alert::success('Clinic Updated Succesfully', '');
         return redirect()->route('clinics.index');    

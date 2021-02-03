@@ -12,4 +12,8 @@ class Clinic extends Model
     {
         return $this->hasMany(Visit::class);
     }
+
+    public function clinic_fees(){
+        return $this->hasOne(ClinicFee::class);
+    }
 }
