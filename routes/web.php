@@ -18,15 +18,21 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('ttt',function(){
-    dd(date('Y-m-d', strtotime("+1 month")));
-});
+Route::get('change_language/{locale}',function($locale){
+    
+    app()->setLocale($locale);
+    session()->put('locale',$locale);
+
+    //dd(app()->getLocale());
+    return redirect()->back();
+
+})->name('change_language');
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','change_lang']], function () {
 
     Route::get('old_patients','SitePatientController@index');
     

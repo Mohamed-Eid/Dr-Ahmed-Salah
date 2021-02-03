@@ -1,0 +1,81 @@
+/* START GLOBAL DIRECTION */
+* body {
+  direction: rtl;
+}
+
+.ml-auto {
+  margin: 0;
+  margin-right: auto;
+}
+/* END GLOBAL DIRECTION */
+
+/* START CUSTOMIZE SIDE MENU DIRECTION */
+.side-nav>ul>li>a.side-menu--active {
+  padding: 0 15px;
+}
+
+.side-nav>ul>li>.side-menu:not(.side-menu--active) .side-menu__icon:before {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.side-nav>ul>li>.side-menu.side-menu--active:after, 
+.side-nav>ul>li>.side-menu.side-menu--active:before {
+  right: auto ; 
+  left: 0;
+}
+
+.side-nav>ul>li>.side-menu.side-menu--active:before {
+  transform: rotate(180deg) scale(1.04);
+}
+
+.side-nav>ul>li>.side-menu.side-menu--active:after {
+  transform: rotateY(180deg) scale(1.04);
+}
+
+.side-nav>ul>li>.side-menu.side-menu--active .side-menu__icon:before {
+  right: auto;
+  left: -15px;
+}
+/* END CUSTOMIZE SIDE MENU DIRECTION */
+
+/* START CUSTOMIZE UPPER BAR DIRECTION */
+.dropdown .dropdown-box.show {
+  left: 0;
+  right: auto;
+}
+
+*>.-intro-x:first-child {
+  margin-right: 5px;
+  margin-left: auto;
+}
+/* END CUSTOMIZE UPPER BAR DIRECTION */
+
+/* START CUSTOMIZE PROFILE PAGE DIRECTION */
+.intro-y .section-headding h2 {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.intro-y .flex .box-line {
+  margin-right: 0;
+  width: 100%;
+}
+/* END CUSTOMIZE PROFILE PAGE DIRECTION */
+
+/* START:: FLOATING BUTTON STYLE */
+.floating_btn {
+  display: table;
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+  color: #fff;
+  z-index: 999;
+}
+
+.floating_btn svg {
+  font-size: 22px;
+}
+/* END:: FLOATING BUTTON STYLE */

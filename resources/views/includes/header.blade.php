@@ -22,6 +22,9 @@
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('dist/css/custom-style.css') }}" />
+@if(app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{ asset('dist/css/app-ar.css') }}" />
+    @endif
     <link rel="stylesheet" href="{{ asset('dist/css/print.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <style>
@@ -347,6 +350,26 @@
                     </div>
                 </div>
                 <!-- END: SYSTEM THEMES -->
+
+                {{-- START:: LANGUAGE --}}
+                @if(app()->getLocale() == 'en')
+                <div class="intro-x dropdown relative mr-auto  ml-2 sm:mr-6">
+                    <div class="dropdown-toggle  cursor-pointer">
+                        <a href="{{ route('change_language','ar') }}">
+                            <img src="{{ asset('dist/images/translate.svg') }}" class="translate tooltip" style="width: 25px" title="@lang('site.switch_language')" />
+                        </a>				
+                    </div>
+                </div>
+                @elseif(app()->getLocale() == 'ar')
+                <div class="intro-x dropdown relative mr-auto  ml-2 sm:mr-2">
+                    <div class="dropdown-toggle  cursor-pointer">
+                        <a href="{{ route('change_language','en') }}">
+                            <img src="{{ asset('dist/images/translate.svg') }}" class="translate tooltip" style="width: 25px" title="@lang('site.switch_language')" />
+                        </a>
+                    </div>
+                </div>
+                @endif
+                {{-- END:: LANGUAGE --}}
 
                 <!-- BEGIN: Account Menu -->
                 <div class="intro-x dropdown w-8 h-8 relative">
