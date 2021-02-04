@@ -91,6 +91,7 @@
                                     <tr class="bg-gray-200 dark:bg-dark-1">
                                         <th class="border-b-2 whitespace-no-wrap">#</th>
                                         <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> Clinic Name</th>
                                         <th class="border-b-2 whitespace-no-wrap"> Type </th>
                                         <th class="border-b-2 whitespace-no-wrap"> Cost </th>
                                         <th class="border-b-2 whitespace-no-wrap"> Paid </th>
@@ -106,6 +107,7 @@
                                     <tr>
                                         <td class="border-b dark:border-dark-5">{{$index+1}}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->patient->name }}</td>
+                                        <td class="border-b dark:border-dark-5">{{ $visit->clinic->name }}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->type() }}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->type_cost() }}</td>
                                         <td class="border-b dark:border-dark-5">{{ $visit->paid }}</td>
@@ -164,7 +166,7 @@
 
                                                 <div class="col-span-12 lg:flex-row pr-3 pl-3 -mx-5">
                                                     <label class="text-gray-600 mb-3 text-lg block">The Fees</label>
-                                                    <input type="text" name="paid" class="input border mt-2 w-full" placeholder="The Fees">
+                                                    <input type="text" name="paid" value="{{ $visit->type_cost()  }}" class="input border mt-2 w-full" placeholder="The Fees">
                                                 </div>
 
                                                 <div

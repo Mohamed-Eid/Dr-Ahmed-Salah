@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth','change_lang']], function () {
 
     Route::put('update_passowrd','UserController@update_password')->name('update_password');
 
+    Route::get('financilas','FinancilasController@index')->name('financilas.index');
+    Route::post('imports_exports','FinancilasController@imports_exports')->name('financilas.imports_exports');
 
     Route::resource('clinics', 'ClinicController')->middleware('is_doctor');;
     Route::resource('patients', 'PatientController');
