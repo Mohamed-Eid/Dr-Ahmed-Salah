@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Clinic;
+use App\ExportImport;
 use App\Http\Requests\CreateClinicRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -39,6 +41,45 @@ class ClinicController extends Controller
 
         Alert::success('Clinic Saved Succesfully', '');
         return redirect()->back();
+    }
+
+    public function show(Request $request, Clinic $clinic)
+    {
+
+        $startDate = new Carbon(); //returns current day
+        $firstDay = $startDate->firstOfMonth()->format('Y-m-d');
+        
+        $endDate = new Carbon();
+        $endDay = $endDate->lastOfMonth()->format('Y-m-d');
+        
+    
+        $visit_days = $clinic->visits()
+        ->whereDate('visit_date','>=',$request->from ?? $firstDay )
+        ->whereDate('visit_date','<=',$request->to ?? $endDay)->get()->groupBy('visit_date');
+    
+
+        $visit_days = $clinic->visits()
+            ->when($request->from , function ($q) use ($request){
+                return $q->whereDate('visit_date','>=',$request->from );
+            })->when($request->to , function ($q) use ($request){
+                return $q->whereDate('visit_date','<=',$request->to );
+            })->get()->groupBy('visit_date');
+
+        $total_income = 0;
+        foreach ($visit_days as $day => $day_data) {
+            foreach ($day_data as $index => $visit){
+                $total_income+=$visit->paid;
+            }
+        }
+
+        $exports_imports = ExportImport::where('clinic_id',$clinic->id)
+        ->when($request->from , function ($q) use ($request){
+            return $q->whereDate('created_at','>=',$request->from);
+        })->when($request->to,function($q) use($request){
+            return $q->whereDate('created_at','<=',$request->to);
+        })->get();
+
+        return view('clinics.show',compact('clinic','visit_days','exports_imports','total_income'));
     }
 
 

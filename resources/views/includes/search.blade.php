@@ -16,5 +16,5 @@
 
 <button type="button" onclick="printBy('.lg-table')"
     class="print button translate-y-3 md:mt-6 mt-2 flex items-center justify-center bg-theme-1 text-white">
-    <i data-feather="printer" class="w-4 h-4 mr-2  ml-2"></i> Print
+    <i data-feather="printer" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.print')
 </button>

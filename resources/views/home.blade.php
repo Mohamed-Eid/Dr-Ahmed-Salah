@@ -90,14 +90,14 @@
                                 <thead>
                                     <tr class="bg-gray-200 dark:bg-dark-1">
                                         <th class="border-b-2 whitespace-no-wrap">#</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Clinic Name</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Type </th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Cost </th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Paid </th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Phone Number</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Reservation Time</th>
-                                        <th class="print border-b-2 whitespace-no-wrap">Actions</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.patient_name')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.clinic_name')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.visit_type') </th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.cost') </th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.paid') </th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.phone')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.Reservation Time')</th>
+                                        <th class="print border-b-2 whitespace-no-wrap">@lang('site.action')</th>
                                     </tr>
                                 </thead>
 

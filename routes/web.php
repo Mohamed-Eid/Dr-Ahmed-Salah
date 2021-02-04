@@ -112,6 +112,7 @@ Route::group(['middleware' => ['auth','change_lang']], function () {
         Route::get('surgeries_payment','ReportController@surgeries_payment')->name('reports.surgeries_payment')->middleware('is_doctor');
         Route::get('hospitals','ReportController@hospitals')->name('reports.hospitals')->middleware('is_doctor');
         Route::get('patients','ReportController@patients')->name('reports.patients');
+        Route::get('clinics','ReportController@clinics')->name('reports.clinics');
         Route::get('patients/{patient}/cash','ReportController@patient_cash')->name('reports.patient_cash');
         Route::get('patients/{patient}/patient_installmets','ReportController@patient_installmets')->name('reports.patient_installmets');
     });

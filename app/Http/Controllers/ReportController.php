@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Clinic;
 use App\Hospital;
 use App\Patient;
 use App\Surgery;
@@ -17,6 +18,13 @@ class ReportController extends Controller
         })->latest()->get();//->paginate(10);
         
         return view('reports.surgeries',compact('surgeries'));
+    }
+
+
+    public function clinics(Request $request){
+        $clinics = Clinic::all();
+
+        return view('reports.clinics',compact('clinics'));
     }
 
     public function surgeries_payment(Request $request){

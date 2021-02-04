@@ -131,7 +131,7 @@ return [
     
     //financilas
     'total_expense' => 'إجمالي المصروفات',
-    'total_imports' => 'إجمالي المخرجات',
+    'total_imports' => 'إجمالي المدخلات',
     'total_day_financials' => 'الإجمالي كشوفات اليوم',
     'total_pre_reservations' => 'إجمالي الحجوزات المسبقه',
     'general_financials' => 'الإجمالي النهائي',
@@ -207,5 +207,13 @@ return [
     're_visit'     => 'إعادة',
     'consultation' => 'إستشارة',
     'free_consultation' => ' إستشارة مجانية',
-
+    'visit_type' => 'نوع الزيارة',
+    'cost' => 'التكلفة',
+    'Reservation Time' => 'وقت الحجز',
+    'users' => 'المستخدمين',
+    'name'  => 'الاسم',
+    'Role' => 'الصلاحيات',
+    'salary' => 'المرتب',
+    'Actions' => 'الإجراء',
+    'Add User' => 'إضافة مستخدم',
 ];

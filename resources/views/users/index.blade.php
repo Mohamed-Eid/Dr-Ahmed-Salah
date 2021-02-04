@@ -2,12 +2,11 @@
 
 @section('content')
 <div class="intro-y flex items-center justify-between flex-wrap pt-5">
-    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">All Users</h2>
+    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.all_users')</h2>
     
     <button type="submit"
         class="print button translate-y-3 mt-2 mr-2 flex items-center justify-center bg-theme-1 text-white w-32">
-        <a href="{{ route('users.create') }}" class="w-full"> <i data-feather="plus" class="inline w-4 h-4 mr-2  ml-2"></i> Add
-            User </a>
+        <a href="{{ route('users.create') }}" class="w-full"> <i data-feather="plus" class="inline w-4 h-4 mr-2  ml-2"></i> @lang('site.Add User') </a>
     </button>
 </div>
 
@@ -29,10 +28,10 @@
                     <thead>
                         <tr class="bg-gray-200 dark:bg-dark-1">
                             <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">#</th>
-                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Name</th>
-                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Role</th>
-                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">salary</th>
-                            <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">Actions</th>
+                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.name')</th>
+                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Role')</th>
+                            <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.salary')</th>
+                            <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Actions')</th>
                         </tr>
                     </thead>
 

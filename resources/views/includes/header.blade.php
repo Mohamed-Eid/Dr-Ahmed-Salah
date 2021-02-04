@@ -266,7 +266,7 @@
                                 <a href="{{ route('reports.surgeries_payment') }}"
                                     class="side-menu {{ is_active('reports.surgeries_payment') }}">
                                     <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                    <div class="side-menu__title"> @lang('site.surgeries_financial_report ')</div>
+                                    <div class="side-menu__title"> @lang('site.surgeries_financial_report')</div>
                                 </a>
                             </li>
 
@@ -282,7 +282,7 @@
                             <a href="{{ route('reports.patients') }}"
                                 class="side-menu {{ is_active('reports.patients') }}">
                                 <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
-                                <div class="side-menu__title"> @lang('site.patients_reports') </div>
+                                <div class="side-menu__title"> @lang('site.patients_report') </div>
                             </a>
                         </li>
                     </ul>
