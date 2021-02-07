@@ -190,7 +190,12 @@ return [
     'hospitals_financial_report' => 'التقارير المالية للمستشفيات',
     'patients_report' => 'تقارير المرضي',
 
+    'Edit Profile' => 'تعديل الصفحة الشخصية',
+    'email' => 'البريد الإلكتروني',
+    'Add New Patient' => 'إضافة حالة جديدة',
 
+    'Patient Name' => 'إسم الحالة',
+    'visits' => 'الحجوزات',
     //home
     'general_day_report' => 'التقرير اليومي',
 
@@ -216,4 +221,8 @@ return [
     'salary' => 'المرتب',
     'Actions' => 'الإجراء',
     'Add User' => 'إضافة مستخدم',
+
+
+    'Financial Report' => 'التقرير المالي',
+    'Patient History' => 'تاريخ الحالة',
 ];

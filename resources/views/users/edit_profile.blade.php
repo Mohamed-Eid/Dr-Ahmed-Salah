@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="intro-y flex items-center mt-1 h-10">
-    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">Edit Profile</h2>
+    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.Edit Profile')</h2>
 </div>
 
 <!-- BEGIN: Profile Info -->
@@ -36,22 +36,22 @@
 
         <div class="grid grid-cols-12 gap-6">
             <div class=" col-span-12 sm:col-span-12 lg:col-span-6 lg:flex-row px-5 py-1 -mx-5">
-                <label class="text-gray-600 mb-3 text-lg">Name</label>
+                <label class="text-gray-600 mb-3 text-lg">@lang('site.name')</label>
                 <input type="text" class="input w-full border mt-2" name="name" placeholder="Name" value="{{ auth()->user()->name }}">
             </div>
 
             <div class=" col-span-12 sm:col-span-12 lg:col-span-6 lg:flex-row px-5 py-1 -mx-5">
-                <label class="text-gray-600 mb-3 text-lg">Phone Number</label>
+                <label class="text-gray-600 mb-3 text-lg">@lang('site.phone')</label>
                 <input type="text" class="input w-full border mt-2" name="phone" placeholder="Phone Number" value="{{ auth()->user()->phone }}">
             </div>
 
             <div class=" col-span-12 sm:col-span-12 lg:col-span-6 lg:flex-row px-5 py-1 -mx-5">
-                <label class="text-gray-600 mb-3 text-lg">Address</label>
+                <label class="text-gray-600 mb-3 text-lg">@lang('site.address')</label>
                 <input type="text" class="input w-full border mt-2" name="address" placeholder="Address" value="{{ auth()->user()->address }}">
             </div>
 
             <div class=" col-span-12 sm:col-span-12 lg:col-span-6 lg:flex-row px-5 py-1 -mx-5">
-                <label class="text-gray-600 mb-3 text-lg">Email</label>
+                <label class="text-gray-600 mb-3 text-lg">@lang('site.email')</label>
                 <input type="email" class="input w-full border mt-2" name="email" placeholder="Email" value="{{ auth()->user()->email }}">
             </div>
         </div>
@@ -59,7 +59,7 @@
     </div>
     
     <button type="submit" class="button w-32 mr-2 mb-2 flex items-center justify-center bg-theme-1 text-white">
-        <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> Save
+        <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.save')
     </button>
 
     </div>

@@ -10,6 +10,8 @@ return [
     'visits' => 'Reservations',
     'clinics' => 'Clinics',
     'reports' => 'Reports',
+    'remember_me' => 'Remember Me',
+    'forget_password' => 'Forget Password',
 
     //general
     'action'          => 'Action',

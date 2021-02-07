@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="intro-y flex items-center justify-between flex-wrap pt-5">
-    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">All Users</h2>
+    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.all_patients')</h2>
     
     <a href="{{ route('patients.create') }}"
         class="print button translate-y-3 mt-2 ml-2 flex items-center justify-center bg-theme-1 text-white"
         style="width: 190px;">
-        <i data-feather="plus" class="w-4 h-4 mr-2  ml-2"></i> Add New Patient
+        <i data-feather="plus" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.Add New Patient')
     </a>
 </div>
 
@@ -25,10 +25,10 @@
                 <thead>
                     <tr class="bg-gray-200 dark:bg-dark-1">
                         <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">#</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Patient Name</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Phone Number</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Visites</th>
-                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">Actions</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Patient Name')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.phone')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.visits')</th>
+                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Actions')</th>
                     </tr>
                 </thead>
 
@@ -43,7 +43,7 @@
                         <td class="print border-b dark:border-dark-5 whitespace-no-wrap">
 
                             <button class="button px-2 mr-1 mb-2 bg-theme-9 text-white tooltip"
-                                title="Financial Report">
+                                title="@lang('site.Financial Report')">
                                 <a href="{{ route('show_payment',$patient) }}"
                                     class="w-5 h-5 flex items-center justify-center">
                                     <i data-feather="dollar-sign" class="w-4 h-4"></i>
@@ -51,7 +51,7 @@
                             </button>
 
                             <button class="button px-2 mr-1 mb-2 bg-theme-12 text-white tooltip"
-                                title="Patient History ">
+                                title="@lang('site.Patient History')">
                                 <a href="{{ route('patients.show',$patient) }}"
                                     class="w-5 h-5 flex items-center justify-center">
                                     <i data-feather="hard-drive" class="w-4 h-4"></i>
