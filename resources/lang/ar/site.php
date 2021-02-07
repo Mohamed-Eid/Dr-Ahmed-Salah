@@ -27,7 +27,7 @@ return [
     'remember_me'     => 'تذكرني',
     'forget_password' => 'نسيت كلمه المرور',
 
-    //side bar
+    //side clinic
     'u_care'          => 'يو كير',
     'home'            => 'الرئيسية',
     'profile'         => 'الصفحة الشخصية',

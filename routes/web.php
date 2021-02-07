@@ -34,7 +34,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth','change_lang']], function () {
 
-    Route::get('old_patients','SitePatientController@index');
+    Route::get('old_patients','SitePatientController@index')->name('site_patient.index');
     
     Route::get('site_patients/{site_visit}','SitePatientController@create')->name('site_patient.create');
     Route::post('site_patients/{site_visit}','SitePatientController@store')->name('site_patient.store');
