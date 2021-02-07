@@ -74,7 +74,7 @@
                         <td class="print border-b dark:border-dark-5 whitespace-no-wrap">
 
                             <button class="button px-2 mr-1 mb-2 bg-theme-9 text-white tooltip" title="Edit">
-                                <a href="#" class="w-5 h-5 flex items-center justify-center">
+                                <a href="#" data-toggle="modal" data-target="#drug-modal-{{$drug->id }}" class="w-5 h-5 flex items-center justify-center">
                                     <i data-feather="edit" class="w-4 h-4"></i>
                                 </a>
                             </button>
@@ -84,7 +84,8 @@
 
                         </td>
 
-                    </tr>                        
+                    </tr>   
+                    @include('drug_store.drugs.modal')                     
                     @endforeach
 
                 </tbody>
