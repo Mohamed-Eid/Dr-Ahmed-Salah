@@ -17,19 +17,19 @@
                     <div class="intro-y box px-5 pt-5 pb-5 mt-5">
 
                         <div class="grid grid-cols-12 gap-6">
-                            <h2 class="text-gray-600 mb-4 text-lg col-span-6"> All Reservations Requests </h2>
+                            <h2 class="text-gray-600 mb-4 text-lg col-span-6"> @lang('site.requests') </h2>
                         </div>
 
 
                         <form class="grid grid-cols-12 gap-6" method="GET" action="{{ route('online_visits') }}">
                             
                             <div class="col-span-5 lg:flex-row pr-3 pl-3 -mx-5">
-                                <label class="text-gray-600 mb-3 text-lg">From</label>
+                                <label class="text-gray-600 mb-3 text-lg">@lang('site.from')</label>
                                 <input type="date" name="from" value="{{ request()->from ?? '' }}" class="input w-full border mt-2" placeholder="Patient BMI">
                             </div>
 
                             <div class="col-span-5 lg:flex-row pr-3 pl-3 -mx-5">
-                                <label class="text-gray-600 mb-3 text-lg">To</label>
+                                <label class="text-gray-600 mb-3 text-lg">@lang('site.to')</label>
                                 <input type="date" name="to" value="{{ request()->to ?? '' }}" class="input w-full border mt-2" placeholder="Patient BMI">
                             </div>
 
@@ -46,13 +46,13 @@
                                 <thead>
                                     <tr class="bg-gray-200 dark:bg-dark-1">
                                         <th class="border-b-2 whitespace-no-wrap">#</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Phone Number</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Email</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Country</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Date Of Birth</th>
-                                        <th class="border-b-2 whitespace-no-wrap">Reservation Info</th>
-                                        <th class="print border-b-2 whitespace-no-wrap">Actions</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.name')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.phone')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.email')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.country')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.dob')</th>
+                                        <th class="border-b-2 whitespace-no-wrap">@lang('site.Reservation Info')</th>
+                                        <th class="print border-b-2 whitespace-no-wrap">@lang('site.Actions')</th>
                                     </tr>
                                 </thead>
 

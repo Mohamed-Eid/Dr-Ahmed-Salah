@@ -225,4 +225,12 @@ return [
 
     'Financial Report' => 'التقرير المالي',
     'Patient History' => 'تاريخ الحالة',
+
+    'add_new_visit' => 'إضافة حجز جديد',
+    'edit' => 'تعديل',
+    'from' => 'من',
+    'to' => 'إلي',
+    'dob' => 'تاريخ الميلاد',
+    'Reservation Info' => 'الوقت المفضل للزيارة',
+    
 ];

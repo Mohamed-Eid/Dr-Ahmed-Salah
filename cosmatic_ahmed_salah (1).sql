@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2021 at 03:57 PM
+-- Generation Time: Feb 07, 2021 at 11:06 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -56,7 +56,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Category 1', '2021-02-03 07:41:45', '2021-02-03 07:41:45'),
+(1, 'Category 1 updated', '2021-02-03 07:41:45', '2021-02-07 06:40:22'),
 (2, 'Category 2', '2021-02-03 07:42:19', '2021-02-03 07:42:19');
 
 -- --------------------------------------------------------
@@ -78,7 +78,6 @@ CREATE TABLE `clinics` (
 
 INSERT INTO `clinics` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Clinic 1', '2021-01-06 08:07:07', '2021-01-06 08:07:07'),
-(2, 'Clinic 2', '2021-01-06 08:07:13', '2021-01-06 08:07:13'),
 (4, 'Clinic 3', '2021-02-03 11:58:58', '2021-02-03 11:58:58');
 
 -- --------------------------------------------------------
@@ -104,7 +103,6 @@ CREATE TABLE `clinic_fees` (
 
 INSERT INTO `clinic_fees` (`id`, `clinic_id`, `visit_cost`, `re_visit_cost`, `consultation_cost`, `free_consultation_cost`, `created_at`, `updated_at`) VALUES
 (1, 1, '500', '300', '300', '0', NULL, '2021-02-03 12:02:56'),
-(2, 2, '0', '0', '0', '0', NULL, NULL),
 (3, 4, '200', '150', '150', '0', '2021-02-03 11:58:58', '2021-02-03 11:58:58');
 
 -- --------------------------------------------------------
@@ -159,8 +157,34 @@ CREATE TABLE `drugs` (
 --
 
 INSERT INTO `drugs` (`id`, `category_id`, `name`, `cost`, `amount`, `expiration_date`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Drug Test', '500', 3, '2021-02-27', '2021-02-03 07:42:40', '2021-02-03 07:52:57'),
+(1, 1, 'Drug Test', '550', 12, '2021-02-28', '2021-02-03 07:42:40', '2021-02-07 06:52:20'),
 (2, 2, 'test', '400', 64, '2021-02-27', '2021-02-03 07:43:01', '2021-02-03 07:43:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `export_imports`
+--
+
+CREATE TABLE `export_imports` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `clinic_id` bigint(20) UNSIGNED NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `details` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `export_imports`
+--
+
+INSERT INTO `export_imports` (`id`, `clinic_id`, `type`, `amount`, `details`, `created_at`, `updated_at`) VALUES
+(1, 1, 'imports', '200', 'تست', '2021-02-04 06:12:10', '2021-02-04 06:12:10'),
+(2, 1, 'imports', '200', 'تست', '2021-02-04 06:12:31', '2021-02-04 06:12:31'),
+(3, 1, 'exports', '300', 'aaa', '2021-02-04 06:13:50', '2021-02-04 06:13:50'),
+(4, 1, 'exports', '600', '600 اكسبينزيز', '2021-02-04 06:57:45', '2021-02-04 06:57:45');
 
 -- --------------------------------------------------------
 
@@ -337,7 +361,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (69, '2021_02_03_091014_create_categories_table', 16),
 (70, '2021_02_03_091300_create_drugs_table', 16),
 (71, '2021_02_03_091335_create_in_procedures_table', 16),
-(72, '2021_02_03_134432_create_clinic_fees_table', 17);
+(72, '2021_02_03_134432_create_clinic_fees_table', 17),
+(73, '2021_02_04_075142_create_export_imports_table', 18);
 
 -- --------------------------------------------------------
 
@@ -1428,7 +1453,10 @@ CREATE TABLE `visits` (
 
 INSERT INTO `visits` (`id`, `clinic_id`, `visit_date`, `visit_time`, `type`, `paid`, `patient_id`, `user_id`, `status`, `created_at`, `updated_at`) VALUES
 (35, 1, '2021-02-03', '03:27:00', 1, 200, 15, 3, '0', '2021-02-03 07:27:06', '2021-02-03 07:31:17'),
-(36, 1, '2021-02-03', '18:27:00', 2, 0, 13, 3, '0', '2021-02-03 12:26:03', '2021-02-03 12:26:03');
+(36, 1, '2021-02-03', '18:27:00', 2, 0, 13, 3, '0', '2021-02-03 12:26:03', '2021-02-03 12:26:03'),
+(37, 1, '2021-02-04', '22:49:00', 2, 300, 15, 3, '0', '2021-02-04 05:48:43', '2021-02-04 05:50:22'),
+(38, 1, '2021-02-04', '22:03:00', 2, 300, 9, 3, '0', '2021-02-04 06:02:31', '2021-02-04 06:02:47'),
+(39, 1, '2021-02-04', '22:03:00', 1, 500, 13, 3, '0', '2021-02-04 06:03:12', '2021-02-04 06:03:22');
 
 -- --------------------------------------------------------
 
@@ -1504,6 +1532,13 @@ ALTER TABLE `doctor_infos`
 ALTER TABLE `drugs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `drugs_category_id_foreign` (`category_id`);
+
+--
+-- Indexes for table `export_imports`
+--
+ALTER TABLE `export_imports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `export_imports_clinic_id_foreign` (`clinic_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -1718,7 +1753,7 @@ ALTER TABLE `cash_payments`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `clinics`
@@ -1743,6 +1778,12 @@ ALTER TABLE `doctor_infos`
 --
 ALTER TABLE `drugs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `export_imports`
+--
+ALTER TABLE `export_imports`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1784,7 +1825,7 @@ ALTER TABLE `in_procedures`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `months`
@@ -1892,7 +1933,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `visit_details`
@@ -1936,6 +1977,12 @@ ALTER TABLE `doctor_infos`
 --
 ALTER TABLE `drugs`
   ADD CONSTRAINT `drugs_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `export_imports`
+--
+ALTER TABLE `export_imports`
+  ADD CONSTRAINT `export_imports_clinic_id_foreign` FOREIGN KEY (`clinic_id`) REFERENCES `clinics` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `installment_payments`
