@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2021 at 11:06 AM
+-- Generation Time: Feb 07, 2021 at 02:38 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -362,7 +362,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (70, '2021_02_03_091300_create_drugs_table', 16),
 (71, '2021_02_03_091335_create_in_procedures_table', 16),
 (72, '2021_02_03_134432_create_clinic_fees_table', 17),
-(73, '2021_02_04_075142_create_export_imports_table', 18);
+(73, '2021_02_04_075142_create_export_imports_table', 18),
+(74, '2021_02_07_132200_create_non_surgeries_table', 19);
 
 -- --------------------------------------------------------
 
@@ -380,6 +381,28 @@ CREATE TABLE `months` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `non_surgeries`
+--
+
+CREATE TABLE `non_surgeries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `non_surgeries`
+--
+
+INSERT INTO `non_surgeries` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'NON SUrgery 1', '2021-02-07 11:26:10', '2021-02-07 11:26:10'),
+(2, 'NON SUrgery 2', '2021-02-07 11:29:48', '2021-02-07 11:29:48'),
+(3, 'NON SUrgery 3', '2021-02-07 11:29:52', '2021-02-07 11:29:52');
 
 -- --------------------------------------------------------
 
@@ -1456,7 +1479,8 @@ INSERT INTO `visits` (`id`, `clinic_id`, `visit_date`, `visit_time`, `type`, `pa
 (36, 1, '2021-02-03', '18:27:00', 2, 0, 13, 3, '0', '2021-02-03 12:26:03', '2021-02-03 12:26:03'),
 (37, 1, '2021-02-04', '22:49:00', 2, 300, 15, 3, '0', '2021-02-04 05:48:43', '2021-02-04 05:50:22'),
 (38, 1, '2021-02-04', '22:03:00', 2, 300, 9, 3, '0', '2021-02-04 06:02:31', '2021-02-04 06:02:47'),
-(39, 1, '2021-02-04', '22:03:00', 1, 500, 13, 3, '0', '2021-02-04 06:03:12', '2021-02-04 06:03:22');
+(39, 1, '2021-02-04', '22:03:00', 1, 500, 13, 3, '0', '2021-02-04 06:03:12', '2021-02-04 06:03:22'),
+(40, 1, '2021-02-07', '18:29:00', 2, 0, 15, 3, '0', '2021-02-07 11:26:48', '2021-02-07 11:26:48');
 
 -- --------------------------------------------------------
 
@@ -1599,6 +1623,12 @@ ALTER TABLE `months`
   ADD KEY `months_procedure_id_foreign` (`procedure_id`),
   ADD KEY `months_hospital_id_foreign` (`hospital_id`),
   ADD KEY `months_installment_payment_id_foreign` (`installment_payment_id`);
+
+--
+-- Indexes for table `non_surgeries`
+--
+ALTER TABLE `non_surgeries`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `password_resets`
@@ -1825,13 +1855,19 @@ ALTER TABLE `in_procedures`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `months`
 --
 ALTER TABLE `months`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT for table `non_surgeries`
+--
+ALTER TABLE `non_surgeries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patients`
@@ -1933,7 +1969,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `visit_details`

@@ -12,9 +12,18 @@
     <form method="POST" action="{{ route('drug_store.save' , $visit) }}">
         <div class="grid grid-cols-12 gap-6">
             @csrf
+
+            <div class="col-span-12 sm:col-span-12 lg:col-span-12 lg:flex-row py-2 px-5 mt-2 -mx-5">
+                <label class="text-gray-600 mb-3 text-lg">Non Procedure</label>
+                <select data-search="true" name="non_surgery_id" class="tail-select w-full">
+                    @foreach (\App\NonSurgery::all() as $non_surgery)
+                    <option value="{{ $non_surgery->id }}">{{ $non_surgery->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="col-span-12">
                 <label class="text-gray-600 mb-3 text-lg">Procedure</label>
-
                 <select data-placeholder="Select Procedure" data-search="true"
                     class="non-serg-procedure-selector w-full" multiple>
                     @foreach (\App\Drug::where('amount','>',0)->get() as $drug)

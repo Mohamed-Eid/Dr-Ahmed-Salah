@@ -17,6 +17,8 @@ class DrugStoreController extends Controller
     }
 
     public function store(Request $request , Visit $visit){
+        
+        dd($request->all());
         $request->validate([
             'nonsurgery' => 'required'
         ]);
