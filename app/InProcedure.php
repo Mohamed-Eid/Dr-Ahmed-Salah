@@ -20,4 +20,14 @@ class InProcedure extends Model
     {
         return $this->belongsTo(Drug::class);
     }
+
+    public function drugs()
+    {
+    //return $this->belongsToMany(RelatedModel, pivot_table_name, foreign_key_of_current_model_in_pivot_table, foreign_key_of_other_model_in_pivot_table);
+        return $this->belongsToMany(
+            Drug::class,
+            'drugs_in_procedures',
+            'in_procedure_id',
+            'drug_id');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInProceduresTable extends Migration
+class CreateDrugsInProceduresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateInProceduresTable extends Migration
      */
     public function up()
     {
-        Schema::create('in_procedures', function (Blueprint $table) {
+        Schema::create('drugs_in_procedures', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade');
-            $table->foreignId('visit_id')->constrained()->onDelete('cascade');
+            
             $table->foreignId('drug_id')->constrained()->onDelete('cascade');
+            $table->foreignId('in_procedure_id')->constrained()->onDelete('cascade');
+
+            $table->integer('amount')->default(1);
+            $table->text('comment')->nullable();
+
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateInProceduresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('in_procedures');
+        Schema::dropIfExists('drugs_in_procedures');
     }
 }

@@ -20,6 +20,7 @@ class DrugStoreController extends Controller
         
         dd($request->all());
         $request->validate([
+            'non_surgery_id' => 'required',
             'nonsurgery' => 'required'
         ]);
 
