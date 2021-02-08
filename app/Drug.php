@@ -24,6 +24,15 @@ class Drug extends Model
             InProcedure::class,
             'drugs_in_procedures',
             'drug_id',
-            'in_procedure_id')->withPivot('amount', 'comment');
+            'in_procedure_id')->withPivot('amount', 'comment')->withTimestamps();
     }
+
+    public function used(){
+        $q = 0;
+        foreach ($this->in_procedures as $in_procedure) {
+            $q += $in_procedure->pivot->amount;
+        }
+        return $q;
+    }
+
 }

@@ -32,6 +32,6 @@ class InProcedure extends Model
             Drug::class,
             'drugs_in_procedures',
             'in_procedure_id',
-            'drug_id')->withPivot('amount', 'comment');
+            'drug_id')->withPivot('amount', 'comment')->withTimestamps();
     }
 }

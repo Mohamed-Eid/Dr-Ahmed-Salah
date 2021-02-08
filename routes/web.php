@@ -110,6 +110,7 @@ Route::group(['middleware' => ['auth','change_lang']], function () {
     Route::group(['prefix' => 'reports'], function () {
         Route::get('surgeries','ReportController@surgeries')->name('reports.surgeries')->middleware('is_doctor');
         Route::get('non_surgeries','ReportController@non_surgeries')->name('reports.non_surgeries')->middleware('is_doctor');
+        Route::get('drug_report/{drug}','ReportController@drug_report')->name('reports.drug')->middleware('is_doctor');
         Route::get('surgeries_payment','ReportController@surgeries_payment')->name('reports.surgeries_payment')->middleware('is_doctor');
         Route::get('hospitals','ReportController@hospitals')->name('reports.hospitals')->middleware('is_doctor');
         Route::get('patients','ReportController@patients')->name('reports.patients');

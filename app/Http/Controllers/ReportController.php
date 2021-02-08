@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clinic;
+use App\Drug;
 use App\Hospital;
 use App\NonSurgery;
 use App\Patient;
@@ -75,5 +76,18 @@ class ReportController extends Controller
     
     public function patient_installmets(Patient $patient){
         return view('reports.patient.installment',compact('patient'));
+    }
+
+    public function drug_report(Request $request, Drug $drug){
+        
+        $in_procedures = $drug->in_procedures->when($request->from,function ($q) use ($request){
+            return $q->where('created_at','>=',$request->from);
+        })->when($request->to,function($q) use($request){
+            return $q->where('created_at','<=',$request->to);
+        });
+
+        // dd($in_procedures);
+
+        return view('reports.drug',compact('drug','in_procedures'));
     }
 }
