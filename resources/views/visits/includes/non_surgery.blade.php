@@ -54,25 +54,28 @@
     <div class="grid grid-cols-12 gap-6">
 
         @foreach ($visit->patient->in_procedures as $in_procedure)
+        <h2 >{{ $in_procedure->non_surgery->name }}</h2>
+        @foreach ($in_procedure->drugs as $drug)
         <div
             class="col-span-12 rounded-md flex items-center justify-between px-3 py-3 mb-2 border border-purple-300 text-theme-1 bg-red-100 dark:text-purple-600">
             <div class="flex text-base text-purple-600">
                 <i data-feather="star" class="w-6 h-6 mr-2"></i>
-                {{ $in_procedure->drug->name }}
+                {{ $drug->name }}
             </div>
-
+            <h4>{{ $drug->pivot->comment }}</h4>
             <div class="flex">
                 <span
                     class="text-base flex mx-1 py-2 px-2 rounded-full text-xs bg-purple-400 text-white cursor-pointer font-medium">
-                    <i data-feather="hash" class="w-6 h-6"></i> : {{ $in_procedure->amount }}
+                    <i data-feather="hash" class="w-6 h-6"></i> : {{ $drug->pivot->amount }}
                 </span>
-
+                    
                 <span
                     class="text-base flex mx-1 py-2 px-2 rounded-full text-xs bg-purple-400 text-white cursor-pointer font-medium">
-                    <i data-feather="dollar-sign" class="w-6 h-6"></i> : {{ $in_procedure->amount * $in_procedure->drug->cost }}
+                    <i data-feather="dollar-sign" class="w-6 h-6"></i> : {{ $drug->pivot->amount * $drug->cost }}
                 </span>
             </div>
-        </div>            
+        </div> 
+        @endforeach
         @endforeach
 
 

@@ -24,6 +24,6 @@ class Drug extends Model
             InProcedure::class,
             'drugs_in_procedures',
             'drug_id',
-            'in_procedure_id');
+            'in_procedure_id')->withPivot('amount', 'comment');
     }
 }

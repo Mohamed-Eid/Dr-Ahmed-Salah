@@ -18,7 +18,7 @@ class DrugStoreController extends Controller
 
     public function store(Request $request , Visit $visit){
         
-        dd($request->all());
+        // dd($request->all());
         $request->validate([
             'non_surgery_id' => 'required',
             'nonsurgery' => 'required'
@@ -27,13 +27,25 @@ class DrugStoreController extends Controller
         $patient = $visit->patient;
 
         foreach ($request->nonsurgery as $key => $data) {
-            
-            if($patient->in_procedures()->create([
-                'visit_id' => $visit->id,
-                'drug_id'  => $key,
-                'amount'   => $data['amount'],
-                'comment'  => $data['comment'],
-            ])){
+            $in_procedure = $patient->in_procedures()->create([
+                'visit_id'       => $visit->id,
+                'non_surgery_id' => $request->non_surgery_id,
+                // 'drug_id'  => $key,
+                // 'amount'   => $data['amount'],
+                // 'comment'  => $data['comment'],
+            ]);
+
+            if($in_procedure){
+                $in_procedure->drugs()->attach($key,[
+                    'drug_id'  => $key,
+                    'amount'   => $data['amount'],
+                    'comment'  => $data['comment'],
+                ]);
+                // $in_procedure->drugs()->create([
+                //     'drug_id'  => $key,
+                //     'amount'   => $data['amount'],
+                //     'comment'  => $data['comment'],
+                // ]);
                 $drug = Drug::find($key);
                 $drug->update([
                     'amount' => ($drug->amount - $data['amount'])
