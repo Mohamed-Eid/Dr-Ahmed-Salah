@@ -84,7 +84,7 @@
 
                                             <button class="button px-2 mr-1 mb-2 bg-theme-1 text-white tooltip"
                                                 title="Delay Reservation">
-                                                <a href="javascript:;" data-toggle="modal" data-target="#add-reservation-{{$visit->patient->id}}"
+                                                <a href="javascript:;" data-toggle="modal" data-target="#add-reservation-{{$visit->id}}"
                                                     class="w-5 h-5 flex items-center justify-center">
                                                     <i data-feather="clock" class="w-4 h-4"></i>
                                                 </a>
@@ -106,7 +106,7 @@
                                         
                                     </tr>  
                                     
-                                    <div class="modal" id="add-reservation-{{$visit->patient->id}}">
+                                    <div class="modal" id="add-reservation-{{$visit->id}}">
                                         <div class="modal__content px-5 py-5" style="width: 95%">
                                             <div class="intro-y flex items-center pt-2 mb-5 h-10">
                                                 <h2 class="text-lg font-medium text-gray-600 truncate mr-5">Patients Visit ({{$visit->patient->name}})</h2>

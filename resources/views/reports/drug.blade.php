@@ -10,7 +10,7 @@
 @php
 
 @endphp
-
+<div class="intro-y box px-5 pt-5 pb-5 mt-5">
 <div class="print col-span-12 xxl:col-span-9 grid grid-cols-12 gap-6">
     <div class="col-span-12 mt-8">
 
@@ -105,6 +105,9 @@
     </div>
     <!-- END:: LARGE SCREENS TABLE -->
 </div>
+
+</div>
+
 
 
 
