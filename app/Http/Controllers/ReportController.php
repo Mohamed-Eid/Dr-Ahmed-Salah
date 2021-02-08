@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clinic;
 use App\Hospital;
+use App\NonSurgery;
 use App\Patient;
 use App\Surgery;
 use Illuminate\Http\Request;
@@ -18,6 +19,16 @@ class ReportController extends Controller
         })->latest()->get();//->paginate(10);
         
         return view('reports.surgeries',compact('surgeries'));
+    }
+    
+    public function non_surgeries(Request $request){
+        // $surgeries = Surgery::all();
+        
+        $surgeries = NonSurgery::when($request->id , function ($q) use ($request){
+            return $q->where('id',$request->id);
+        })->latest()->get();//->paginate(10);
+        
+        return view('reports.non_surgeries',compact('surgeries'));
     }
 
 

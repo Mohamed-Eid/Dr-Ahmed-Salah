@@ -138,6 +138,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('reports.non_surgeries') }}" class="menu">
+                            <div class="menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
+                            <div class="menu__title"> Non Surgeries Report </div>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('reports.surgeries_payment') }}" class="menu">
                             <div class="menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
                             <div class="menu__title"> Surgeries Financial Report </div>
@@ -259,6 +265,14 @@
                                     class="side-menu {{ is_active('reports.surgeries') }}">
                                     <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
                                     <div class="side-menu__title"> @lang('site.surgeries_report') </div>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="{{ route('reports.non_surgeries') }}"
+                                    class="side-menu {{ is_active('reports.non_surgeries') }}">
+                                    <div class="side-menu__icon"> <i class="ml-3" data-feather="file-minus"></i> </div>
+                                    <div class="side-menu__title"> @lang('site.non_surgeries_report') </div>
                                 </a>
                             </li>
 

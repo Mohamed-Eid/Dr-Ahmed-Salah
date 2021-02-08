@@ -40,6 +40,7 @@ class Surgery extends Model
         return $total;
     }
 
+    // ???????!!!! wtf !!!!!!!!!
     public function surgeries(){
         return $this->hasManyThrough(Surgery::class, Procedure::class);
     }

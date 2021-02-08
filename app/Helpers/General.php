@@ -4,6 +4,7 @@ use App\CashPayment;
 use App\Month;
 use App\Patient;
 use App\ProcedurePayment;
+use Illuminate\Support\Facades\DB;
 
 function folder_path($path){
     if (!file_exists($path)) {
@@ -145,7 +146,10 @@ function is_active($route){
 }
 
 function drop_active(){
-    if(is_current_route('reports.surgeries') || is_current_route('reports.surgeries_payment') || is_current_route('reports.hospitals') || is_current_route('reports.patients')){
+    if(is_current_route('reports.surgeries') || is_current_route('reports.non_surgeries') 
+        || is_current_route('reports.surgeries_payment') || is_current_route('reports.hospitals') 
+        || is_current_route('reports.patients'))
+    {
         return true;
     }
     return false;
