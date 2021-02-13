@@ -5,7 +5,21 @@
 
 
 <div class="intro-y flex items-center justify-between flex-wrap pt-5">
-    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">Non Surgeries Report</h2>
+    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.non_surgeries_report')</h2>
+    <button class="button p-0 mr-5 flex items-center justify-center bg-theme-1 text-white"
+    style="width: 190px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-plus-square w-4 h-4 mr-2 ml-2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="12" y1="8" x2="12" y2="16"></line>
+        <line x1="8" y1="12" x2="16" y2="12"></line>
+    </svg>
+    <a href="javascript:;" data-toggle="modal" data-target="#add-new-hospital"
+        class="button inline-block bg-theme-1 text-white">
+        @lang('site.Add New Surgery')
+    </a>
+</button>
 </div>
 
 <div class="mt-5">
@@ -16,9 +30,9 @@
             <form class="print grid grid-cols-12 gap-6  mr-auto" id="tabulator-html-filter-form" method="GET" action="{{ route('reports.non_surgeries') }}">
                 
                 <div class="col-span-8 lg:col-span-6 lg:flex-row py-2 px-5 mt-2 -mx-5">
-                    <label class="text-gray-600 mb-3 text-lg">Surgery</label>
+                    <label class="text-gray-600 mb-3 text-lg">@lang('site.Surgery')</label>
                     <select data-search="true" name="id" class="tail-select w-full">
-                        <option value="" >All Surgeries</option>
+                        <option value="" >@lang('site.All Surgeries')</option>
                         @foreach(\App\NonSurgery::all() as $surgery)
                         <option value="{{$surgery->id}}"  {{$surgery->id == request()->id ? 'selected' : ''}}>{{$surgery->name}}</option>
                         @endforeach
@@ -36,12 +50,37 @@
 
             <button type="submit" onclick="printBy('.lg-table')"
                 class="button translate-y-3 md:mt-6 ml-2 flex items-center justify-center bg-theme-1 text-white">
-                <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> Print
+                <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.print')
             </button>
             
 
         </div>
 
+
+        <div class="modal" id="add-new-hospital">
+            <div class="modal__content p-10 text-center" style="width: 50%">
+
+
+                <div class="intro-y flex items-center pt-5 h-10">
+                    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.Add New Surgery')</h2>
+                </div>
+
+                <form class="grid grid-cols-12 gap-6 mt-5 intro-y box px-5 pt-5 pb-5 mt-5" method="POST" action="{{ route('non_surgeries.store') }}">
+                    @csrf
+                    <div class="col-span-12 lg:flex-row pr-3 pl-3 -mx-5">
+                        <label class="text-gray-600 mb-3 text-lg">@lang('site.Surgery Name')</label>
+                        <input type="text" name="name" class="input w-full border mt-2" placeholder="@lang('site.Surgery Name')">
+                    </div>
+
+                    <button type="submit"
+                        class="button translate-y-3 mt-2 mr-2 flex items-center justify-center bg-theme-1 text-white col-span-4">
+                        <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.save')
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
 
         <!-- START:: LARGE SCREEN TABLE -->
         <div class="overflow-x-auto p-5 hidden lg:block">
@@ -49,11 +88,11 @@
                 <thead>
                     <tr class="bg-gray-200 dark:bg-dark-1">
                         <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">#</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Surgery Type</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Total Number</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Total Patients</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Total Number Of Males</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Total Number Of Females</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Surgery Type')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Total Number')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Total Patients')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Total Number Of Males')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Total Number Of Females')</th>
                     </tr>
                 </thead>
 

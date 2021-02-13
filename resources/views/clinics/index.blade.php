@@ -19,9 +19,9 @@
                 <thead>
                     <tr class="bg-gray-200 dark:bg-dark-1">
                         <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">#</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Name</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Visites</th>
-                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">Actions</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.name')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.visits')</th>
+                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Actions')</th>
                     </tr>
                 </thead>
 

@@ -21,6 +21,7 @@ return [
     'login'           => 'تسجيل دخول',
     'forget_password' => 'نسيت كلمة المرور ؟',
     'remember_me'     => 'تذكرني',
+    'country'         => 'الدولة',
     //uper nav
     'switch_language' => 'تغير اللغة',
 
@@ -64,6 +65,40 @@ return [
     'governments' => 'المحافظات',
     'government' => 'المحافظة',
 
+    'Receptionist' => 'موظف استقبال',
+
+    'clinic_name' => 'إسم العيادة',
+    'visit_cost' => 'سعر الكشف',
+    'revisit_cost' => 'سعر الإعادة',
+    'consultation_cost' => 'سعر الإستشارة',
+
+    //reports
+    'Surgeries Report' => 'تقرير العمليات',
+    'Add New Surgery' => 'إضافة عملية',
+    'Surgery' => 'العملية',
+    'All Surgeries' => 'كل العمليات',
+    'Surgery Name' => 'إسم العملية',
+    'Surgery Type' => 'إسم العملية',
+    'Total Number' => 'عدد مرات إجراء العملية',
+    'Total Patients' => 'إجمالي المرضي',
+    'Total Number Of Males' => 'إجمالي الذكور',
+    'Total Number Of Females' => 'إجمالي الإناث',
+
+    'non_surgeries_report' => 'تقرير العمليات الغير جراحية',
+
+    'Total Patient Fees' => 'إجمالي المبلغ المدفوع',
+    'Total Hospital Fees' => 'إجمالي تكلفة المستشفي',
+    'Total Doctor Profits' => 'إجمالي الارباح ',
+
+    'Hospital' => 'المستشفي',
+    'Add New Hospital' => 'إضافة مستشفي',
+    'All Hospitals' => 'كل المستشفيات',
+    'Hospital Name' => 'إسم المستفشي',
+    'Show Hospital Details' => 'عرض تفاصيل المستشفي',
+    'report' => 'تقرير',
+
+    'Patient' => 'الحالة',
+    'All Patients' => 'كل الحالات',
 
     //general reprot in home
     'general_report' => 'تقرير عام',

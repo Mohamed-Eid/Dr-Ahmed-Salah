@@ -15,17 +15,17 @@
                     <div class="intro-y box px-5 pt-5 pb-5 mt-5">
 
                         <div class="flex flex-wrap lg:grid grid-cols-12 gap-6">
-                            <h2 class="text-gray-600 mb-4 text-lg col-span-6"> All Reservations </h2>
+                            <h2 class="text-gray-600 mb-4 text-lg col-span-6"> @lang('site.reservations') </h2>
 
                             <div class="col-span-12 md:col-span-6 flex justify-end">
                                 <a href="{{ route('patients.index') }}"
                                     class="button translate-y-3 mt-2 mr-2 flex items-center justify-center bg-theme-1 text-white">
-                                    <i data-feather="plus" class="w-4 h-4 mr-1"></i> Add New Reservation
+                                    <i data-feather="plus" class="w-4 h-4 mr-1"></i> @lang('site.add_new_reservations')
                                 </a>
 
                                 <button type="button" onclick="printBy('.lg-table')"
                                 class="print  button translate-y-3 mt-2 mr-2 flex items-center justify-center bg-theme-1 text-white">
-                                    <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> Print
+                                    <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.print')
                                 </button>
                             </div>
 
@@ -35,12 +35,12 @@
                         <form class="grid grid-cols-12 gap-6" method="GET" action="{{ route('visits.index') }}">
                             
                             <div class="col-span-12 lg:col-span-5 lg:flex-row pr-3 pl-3 -mx-5">
-                                <label class="text-gray-600 mb-3 text-lg">From</label>
+                                <label class="text-gray-600 mb-3 text-lg">@lang('site.from')</label>
                                 <input type="date" name="from" value="{{ request()->from ?? '' }}" class="input w-full border mt-2" placeholder="Patient BMI">
                             </div>
 
                             <div class="col-span-12 lg:col-span-5 lg:flex-row pr-3 pl-3 -mx-5">
-                                <label class="text-gray-600 mb-3 text-lg">To</label>
+                                <label class="text-gray-600 mb-3 text-lg">@lang('site.to')</label>
                                 <input type="date" name="to" value="{{ request()->to ?? '' }}" class="input w-full border mt-2" placeholder="Patient BMI">
                             </div>
 
@@ -58,13 +58,13 @@
                                 <thead>
                                     <tr class="bg-gray-200 dark:bg-dark-1">
                                         <th class="border-b-2 whitespace-no-wrap">#</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Patient Name</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Clinic</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Phone Number</th>
-                                        <th class="border-b-2 whitespace-no-wrap">Reservation Date</th>
-                                        <th class="border-b-2 whitespace-no-wrap">Reservation Time</th>
-                                        <th class="border-b-2 whitespace-no-wrap"> Receptionist </th>
-                                        <th class="print border-b-2 whitespace-no-wrap">Actions</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.patient_name')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.clinic')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.phone')</th>
+                                        <th class="border-b-2 whitespace-no-wrap">@lang('site.reservation_date')</th>
+                                        <th class="border-b-2 whitespace-no-wrap">@lang('site.reservation_time')</th>
+                                        <th class="border-b-2 whitespace-no-wrap"> @lang('site.Receptionist') </th>
+                                        <th class="print border-b-2 whitespace-no-wrap">@lang('site.Actions')</th>
                                     </tr>
                                 </thead>
 

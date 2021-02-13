@@ -13,6 +13,11 @@ return [
     'remember_me' => 'Remember Me',
     'forget_password' => 'Forget Password',
 
+
+
+    'country'         => 'Country',
+    //uper nav
+    'switch_language' => 'Switch Language',
     //general
     'action'          => 'Action',
     'phone_number'    => 'Phone Number',
@@ -31,6 +36,42 @@ return [
     'delay'           => 'Delay',
     'logout'          => 'Logout',
     'login'           => 'Login',
+
+    'Receptionist' => 'Receptionist',
+
+    'clinic_name' => 'Clinic Name',
+    'visit_cost' => 'Visit Cost',
+    'revisit_cost' => 'Revisit Cost',
+    'consultation_cost' => 'Consultation Cost',
+
+
+    //reports
+    'Surgeries Report' => 'Surgeries Report',
+    'Add New Surgery' => 'Add New Surgery',
+    'Surgery' => 'Surgery',
+    'All Surgeries' => 'All Surgeries',
+    'Surgery Name' => ' Surgery Name',
+    'Surgery Type' => ' Surgery Type',
+    'Total Number' => 'Total Number',
+    'Total Patients' => 'Total Patients',
+    'Total Number Of Males' => 'Total Number Of Males',
+    'Total Number Of Females' => 'Total Number Of Females',
+
+    'non_surgeries_report' => 'Non Surgeries Report',
+
+    'Total Patient Fees' => 'Total Patient Fees',
+    'Total Hospital Fees' => 'Total Hospital Fees',
+    'Total Doctor Profits' => 'Total Doctor Profits',
+
+    'Hospital' => 'Hospital',
+    'Add New Hospital' => 'Add New Hospital',
+    'All Hospitals' => 'All Hospitals',
+    'Hospital Name' => 'Hospital Name',
+    'Show Hospital Details' => 'Show Hospital Details',
+    'report' => 'Report',
+
+    'Patient' => 'Patient',
+    'All Patients' => 'All Patients',
 
 
     //uper nav
@@ -184,5 +225,58 @@ return [
     'deleted_successfully' => 'Deleted Successfuly',
     'no_patient'            => 'No Current Patient Now',
     'password_changed_successfuly' => 'Password Changed Successfuly',
+
+
+    'general_day_report' => 'General Day Report',
+
+    'Surgeries' => 'Surgeries',
+
+    'Checked In Patients' => 'Checked In Patients',
+    'Today Reservations' => 'Today Reservations',
+
+    'print' => 'print',
+
+    'Add New Reservation' => 'Add New Reservation',
+
+    'visit'        => 'Visit',
+    're_visit'     => 'Re Visit',
+    'consultation' => 'Consultation',
+    'free_consultation' => 'Free Consultation',
+    'visit_type' => 'Visit Type',
+    'cost' => 'cost',
+    'Reservation Time' => 'Reservation Time',
+    'users' => 'Users',
+    'name'  => 'Name',
+    'Role' => 'Role',
+    'salary' => 'Salary',
+    'Actions' => 'Actions',
+    'Add User' => 'Add User',
+
+
+    'Financial Report' => 'Financial Report',
+    'Patient History' => 'Patient History',
+
+    'add_new_visit' => 'Add New Visit',
+    'edit' => 'Edit',
+    'from' => 'From',
+    'to' => 'To',
+    'dob' => 'Date of Birth',
+    'Reservation Info' => 'Reservation Favorite Date',
+
+
+
+
+
+
+
+    'system_settings' => 'System Settings',
+    'all_users' => 'All Users',
+    'requests' => 'Visit Requests',
+    'all_reservation' => 'All Reservation',
+    'drug_store' => 'Drug Store',
+    'surgeries_report' => 'Surgeries Report',
+    'surgeries_financial_report' => 'Surgeries Financial Report',
+    'hospitals_financial_report' => 'Hospitals Financial Report',
+    'patients_report' => 'Patients Report',
 ];
 

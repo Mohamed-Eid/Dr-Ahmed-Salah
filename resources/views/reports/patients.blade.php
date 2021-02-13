@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="intro-y flex items-center pt-5 h-10">
-    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">Patients Report</h2>
+    <h2 class="text-lg font-medium text-gray-600 truncate mr-5">@lang('site.patients_report')</h2>
 </div>
 
 <div class="mt-5">
@@ -13,9 +13,9 @@
             <form class="print grid grid-cols-12 gap-6  mr-auto" id="tabulator-html-filter-form" method="GET" action="{{ route('reports.surgeries') }}">
                 
                 <div class="col-span-8 lg:col-span-6 lg:flex-row py-2 px-5 mt-2 -mx-5">
-                    <label class="text-gray-600 mb-3 text-lg">Patient</label>
+                    <label class="text-gray-600 mb-3 text-lg">@lang('site.Patient')</label>
                     <select data-search="true" name="id" class="tail-select w-full">
-                        <option value="" >All Patients</option>
+                        <option value="" >@lang('site.All Patients')</option>
                         @foreach($patients as $surgery)
                         <option value="{{$surgery->id}}" >{{$surgery->name}}</option>
                         @endforeach
@@ -33,7 +33,7 @@
             
             <button type="button" onclick="printBy('.lg-table')"
                 class="button translate-y-3 md:mt-6 ml-2 flex items-center justify-center bg-theme-1 text-white">
-                <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> Print
+                <i data-feather="save" class="w-4 h-4 mr-2  ml-2"></i> @lang('site.print')
             </button>
 
         </div>
@@ -44,10 +44,10 @@
                 <thead>
                     <tr class="bg-gray-200 dark:bg-dark-1">
                         <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">#</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Patient Name</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Phone Number</th>
-                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">Visites</th>
-                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">Actions</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.name')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.phone')</th>
+                        <th class="border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.visits')</th>
+                        <th class="print border-b-2 dark:border-dark-5 whitespace-no-wrap">@lang('site.Actions')</th>
                     </tr>
                 </thead>
 

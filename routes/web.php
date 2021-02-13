@@ -92,7 +92,8 @@ Route::group(['middleware' => ['auth','change_lang']], function () {
 
     Route::put('update_profile', 'UserController@update_profile')->name('update_profile');
     
-    Route::resource('surgeries', 'SurgeryController')->middleware('is_doctor');;
+    Route::resource('surgeries', 'SurgeryController')->middleware('is_doctor');
+    Route::resource('non_surgeries', 'NonSurgeryController')->middleware('is_doctor');
     Route::resource('hospitals', 'HospitalController')->middleware('is_doctor');;
 
 
